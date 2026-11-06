@@ -1221,3 +1221,106 @@ form .button-area {
   }
 }
 /* experience section ends */
+
+/* ===== section design (about / experience / certifications) ===== */
+.heading::after {
+  content: "";
+  display: block;
+  width: 7rem;
+  height: 0.4rem;
+  margin: 1.2rem auto 0;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, #420177, #2506ad);
+}
+
+/* about: compact, soft lavender glow */
+.about {
+  min-height: auto;
+  padding-top: 7rem;
+  padding-bottom: 5rem;
+  background:
+    radial-gradient(circle at 8% 20%, rgba(115, 3, 167, 0.08), transparent 35rem),
+    radial-gradient(circle at 92% 85%, rgba(37, 6, 173, 0.07), transparent 35rem),
+    #fff;
+}
+.about .row {
+  padding: 2rem 0 0;
+  align-items: center;
+}
+.about .row .image img {
+  margin: 2rem;
+}
+.about .row .content {
+  padding: 1rem 2rem;
+}
+.resumebtn {
+  margin-top: 3rem;
+}
+
+/* experience: light lavender with subtle dot pattern */
+.experience {
+  background-color: #f8f4fd;
+  background-image: radial-gradient(rgba(66, 1, 119, 0.09) 1px, transparent 1px);
+  background-size: 2.4rem 2.4rem;
+}
+.experience .timeline {
+  background: #fff;
+  border-left: none;
+  border-radius: 1.2rem;
+  padding: 4rem 4rem 4rem 7rem;
+  box-shadow: 0 1rem 3rem rgba(66, 1, 119, 0.08);
+  position: relative;
+}
+.experience .timeline::before {
+  content: "";
+  position: absolute;
+  left: 4rem;
+  top: 4.5rem;
+  bottom: 4.5rem;
+  width: 0.3rem;
+  background: rgb(235, 202, 245);
+}
+
+/* certifications: deep purple gradient so the white badge cards stand out */
+.certifications {
+  background:
+    radial-gradient(circle at 15% 10%, rgba(255, 255, 255, 0.08), transparent 30rem),
+    radial-gradient(circle at 85% 90%, rgba(255, 255, 255, 0.06), transparent 30rem),
+    linear-gradient(135deg, #2a0560 0%, #420177 55%, #2506ad 100%);
+}
+.certifications .heading,
+.certifications .cert-subheading {
+  color: #fff;
+}
+.certifications .heading span {
+  color: #e2b8ff;
+}
+.certifications .heading::after {
+  background: linear-gradient(90deg, #e2b8ff, #fff);
+}
+.certifications .cert {
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.25);
+}
+.certifications .cert-all .btn {
+  background: #fff;
+  color: #2506ad;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+}
+.certifications .cert-all .btn:hover {
+  background: #f1e6fb;
+}
+
+@media (max-width: 600px) {
+  .about .row .image img {
+    margin: 1rem auto;
+  }
+  .experience .timeline {
+    padding: 3rem 2rem 3rem 5rem;
+  }
+  .experience .timeline::before {
+    left: 2.5rem;
+  }
+  .experience .job::before {
+    left: -3.55rem;
+  }
+}
