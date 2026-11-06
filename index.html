@@ -2,253 +2,318 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Mitchell Bakker, portfolio, Mitchell, Microsoft Teams, Consultant, Unified Communications, msteams, Senior Consultant" />
-    <meta name="description" content="Welcome to Mitchell's Portfolio" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- Favicon -->
-    <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
-    <title>Portfolio | Mitchell Bakker</title>
+    <title>Mitchell Bakker | Solution Specialist Microsoft Teams &amp; Copilot</title>
+    <meta name="description" content="Mitchell Bakker helps organisations get the most out of Microsoft Teams and Microsoft Copilot. Solution Specialist Microsoft Unified Communications, certified Teams Voice Engineer Expert.">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" content="#120a2a">
+
+    <!-- Link previews (LinkedIn, Teams, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mitchelljb.github.io/">
+    <meta property="og:title" content="Mitchell Bakker | Microsoft Teams &amp; Copilot">
+    <meta property="og:description" content="Solution Specialist Microsoft Unified Communications. Helping organisations get the most out of Microsoft Teams and Copilot.">
+    <meta property="og:image" content="https://mitchelljb.github.io/assets/images/profile.jpg">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" href="./assets/images/favicon.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- navbar starts -->
-<header>
-        <a href="/" class="logo"><i class="fas fa-headset"></i> Mitchell Bakker</a>
-
-        <div id="menu" class="fas fa-bars"></div>
-        <nav class="navbar">
-            <ul>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            </ul>
+<!-- ===== Navigation ===== -->
+<header class="nav" id="nav">
+    <div class="container nav-inner">
+        <a href="#top" class="brand" aria-label="Mitchell Bakker, back to top">
+            <span class="brand-mark">MB</span>
+            <span class="brand-name">Mitchell Bakker</span>
+        </a>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+        <nav class="nav-links" id="navLinks" aria-label="Main">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#certifications">Certifications</a>
+            <a href="https://www.linkedin.com/in/mitchelljoshuabakker/" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i> Connect
+            </a>
         </nav>
+    </div>
 </header>
-<!-- navbar ends -->
 
+<main id="main">
 
-<!-- hero section starts -->
-<section class="home" id="home">
-    <div id="particles-js"></div>
+<!-- ===== Hero ===== -->
+<section class="hero" id="top">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container hero-inner">
+        <div class="hero-text">
+            <span class="eyebrow"><span class="dot" aria-hidden="true"></span> Solution Specialist at Rapid Circle</span>
+            <h1>Hi, I'm <span class="gradient-text">Mitchell Bakker</span></h1>
+            <p class="hero-lead">
+                I help organisations get the most out of
+                <span class="rotator" id="rotator" aria-live="polite">Microsoft Teams</span>
+            </p>
+            <p class="hero-sub">Microsoft Unified Communications specialist with a strong focus on Enterprise Voice, Microsoft Teams and Copilot, and on making sure people actually adopt it.</p>
+            <div class="hero-actions">
+                <a href="#experience" class="btn btn-primary">View my experience <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                <a href="https://www.linkedin.com/in/mitchelljoshuabakker/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i> Connect on LinkedIn</a>
+            </div>
+            <ul class="socials" aria-label="Social profiles">
+                <li><a href="https://www.linkedin.com/in/mitchelljoshuabakker/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+                <li><a href="https://github.com/mitchelljb" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+                <li><a href="https://twitter.com/mitchell_bakker" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+            </ul>
+        </div>
 
-    <div class="content">
-    <h2>Hi There,<br/> I'm <span>Mitchell Bakker</span></h2>
-    <p>I work with <span class="typing-text"></span></p>
-    <a href="#about" class="btn"><span>About Me</span>
-      <i class="fas fa-arrow-circle-down"></i>
-    </a>
-    <div class="socials">
-        <ul class="social-icons">
-          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/mitchelljoshuabakker/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></li> 
-          <li><a class="github" aria-label="GitHub" href="https://github.com/mitchelljb" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></li>
-          <li><a class="twitter" aria-label="Twitter" href="https://twitter.com/mitchell_bakker" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a></li>
-        </ul>
-      </div>
-    </div>
-<div class="image">
-    <img class="tilt" src="./assets/images/profile.jpg" alt="Mitchell Bakker" width="600" height="600">
-</div>
-</section>
-<!-- hero section ends -->
-
-
-<!-- about section starts -->
-<section class="about" id="about">
-    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
-    
-    <div class="row">
-
-    <div class="image">
-        <img class="tilt" src="./assets/images/profile-about.jpg" alt="Portrait of Mitchell Bakker" width="550" height="600">
-    </div>
-    <div class="content">
-        <h3>I'm Mitchell Bakker</h3>
-        <span class="tag">Solution Specialist Microsoft UC · Microsoft Teams &amp; Copilot</span>
-
-        <p>I help organisations get the most out of Microsoft Teams and Microsoft Copilot. With almost 20 years in IT, and since 2015 fully focused on Microsoft Unified Communications, I've guided customers from Lync and Skype for Business to Microsoft Teams, with a strong focus on Enterprise Voice. I'm a certified Microsoft Teams Voice Engineer Expert and Teams Administrator Associate.</p>
-
-        <p>Technology only works when people actually use it, so for me adoption can't be ignored. I like to question the question, rather than just answer it.</p>
-
-        <p>In my spare time I'm a real gadget freak, always interested in the newest technology (anything with a power plug).</p>
-        
-        <div class="box-container">
-            <div class="box">
-              <p><span>Location:</span> The Netherlands</p>
+        <div class="hero-visual">
+            <div class="photo-frame">
+                <img src="./assets/images/profile.jpg" alt="Mitchell Bakker" width="600" height="600">
+            </div>
+            <div class="float-card float-card-top">
+                <img src="./assets/images/badges/teams-voice-engineer-expert.png" alt="" width="44" height="44">
+                <div>
+                    <strong>Teams Voice Engineer</strong>
+                    <span>Microsoft Certified Expert</span>
+                </div>
+            </div>
+            <div class="float-card float-card-bottom">
+                <span class="float-icon" aria-hidden="true"><i class="fas fa-headset"></i></span>
+                <div>
+                    <strong>~20 years in IT</strong>
+                    <span>10+ years Microsoft UC</span>
+                </div>
             </div>
         </div>
-        
-        <div class="resumebtn">
-            <a href="#experience" class="btn"><span>Experience</span>
-                <i class="fas fa-chevron-right"></i>
+    </div>
+</section>
+
+<!-- ===== Key figures ===== -->
+<section class="stats" aria-label="Key figures">
+    <div class="container stats-grid">
+        <div class="stat"><span class="stat-num">~20</span><span class="stat-label">years in IT</span></div>
+        <div class="stat"><span class="stat-num">10+</span><span class="stat-label">years Microsoft UC</span></div>
+        <div class="stat"><span class="stat-num">7+</span><span class="stat-label">years at Avanade</span></div>
+        <div class="stat"><span class="stat-num">19</span><span class="stat-label">Microsoft badges</span></div>
+    </div>
+</section>
+
+<!-- ===== About ===== -->
+<section class="section about" id="about">
+    <div class="container about-grid">
+        <div class="about-text reveal">
+            <span class="section-kicker">About me</span>
+            <h2 class="section-title">Technology only works when people actually use it</h2>
+            <p>I help organisations get the most out of Microsoft Teams and Microsoft Copilot. Since 2015 I've been fully focused on Microsoft Unified Communications, guiding customers from Lync and Skype for Business to Microsoft Teams, with a strong focus on Enterprise Voice.</p>
+            <p>For me, adoption can't be ignored. I like to question the question, rather than just answer it, so the solution fits how people really work.</p>
+            <p>In my spare time I'm a real gadget freak, always interested in the newest technology (anything with a power plug).</p>
+            <p class="about-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> The Netherlands &nbsp;·&nbsp; <i class="fas fa-language" aria-hidden="true"></i> Dutch &amp; English</p>
+        </div>
+
+        <div class="focus-grid">
+            <article class="focus-card reveal">
+                <span class="focus-icon" aria-hidden="true"><i class="fas fa-phone-alt"></i></span>
+                <h3>Teams Phone &amp; Enterprise Voice</h3>
+                <p>Calling in Microsoft Teams, from design to migration off legacy telephony.</p>
+            </article>
+            <article class="focus-card reveal">
+                <span class="focus-icon" aria-hidden="true"><i class="fas fa-video"></i></span>
+                <h3>Microsoft Teams Rooms</h3>
+                <p>Meeting rooms that just work, for hybrid meetings without friction.</p>
+            </article>
+            <article class="focus-card reveal">
+                <span class="focus-icon" aria-hidden="true"><i class="fas fa-magic"></i></span>
+                <h3>Microsoft Copilot</h3>
+                <p>Bringing Copilot for Microsoft 365 to work in a secure and useful way.</p>
+            </article>
+            <article class="focus-card reveal">
+                <span class="focus-icon" aria-hidden="true"><i class="fas fa-users"></i></span>
+                <h3>Adoption &amp; change</h3>
+                <p>Making sure people actually use the tools, because adoption can't be ignored.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Experience ===== -->
+<section class="section experience" id="experience">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="section-kicker">Career</span>
+            <h2 class="section-title">Experience</h2>
+        </div>
+
+        <ol class="timeline">
+            <li class="job job-current reveal">
+                <div class="job-card">
+                    <div class="job-top">
+                        <span class="job-logo" aria-hidden="true">RC</span>
+                        <div>
+                            <h3>Solution Specialist</h3>
+                            <p class="job-company">Rapid Circle</p>
+                        </div>
+                        <span class="job-period"><span class="pill">Current</span> Mar 2025 – present</span>
+                    </div>
+                    <p>Solution Specialist for Microsoft Unified Communications, with a focus on Microsoft Teams and Microsoft Copilot.</p>
+                </div>
+            </li>
+            <li class="job reveal">
+                <div class="job-card">
+                    <div class="job-top">
+                        <span class="job-logo" aria-hidden="true">AV</span>
+                        <div>
+                            <h3>Senior Consultant Microsoft Teams / Skype for Business</h3>
+                            <p class="job-company">Avanade</p>
+                        </div>
+                        <span class="job-period">Nov 2017 – Mar 2025</span>
+                    </div>
+                    <p>Helped customers get the most out of Microsoft Teams, Skype for Business Online and hybrid environments. Started as Consultant and became Senior Consultant in 2019.</p>
+                </div>
+            </li>
+            <li class="job reveal">
+                <div class="job-card">
+                    <div class="job-top">
+                        <span class="job-logo" aria-hidden="true">VZ</span>
+                        <div>
+                            <h3>Technical Consultant</h3>
+                            <p class="job-company">VodafoneZiggo (Vodafone)</p>
+                        </div>
+                        <span class="job-period">Apr 2015 – Oct 2017</span>
+                    </div>
+                    <p>Designed and implemented Microsoft UC solutions on Lync Server 2013, Skype for Business Server 2015 and Office 365 for national and international clients in education, government, finance, real estate, manufacturing and retail, with a focus on Enterprise Voice. Started as Cloud Productivity Support Engineer.</p>
+                </div>
+            </li>
+            <li class="job reveal">
+                <div class="job-card">
+                    <div class="job-top">
+                        <span class="job-logo" aria-hidden="true">U4</span>
+                        <div>
+                            <h3>Technical Support Specialist</h3>
+                            <p class="job-company">UNIT4 Benelux</p>
+                        </div>
+                        <span class="job-period">Oct 2011 – Apr 2015</span>
+                    </div>
+                    <p>Escalation specialist for IT managers at customer organisations, carrying out changes and health checks on more than 200 servers. Grew from Skilled Desk Agent to Expert Support Engineer (Datacenter) and Technical Support Specialist (Hybrid Computing).</p>
+                </div>
+            </li>
+            <li class="job reveal">
+                <div class="job-card">
+                    <div class="job-top">
+                        <span class="job-logo" aria-hidden="true"><i class="fas fa-laptop"></i></span>
+                        <div>
+                            <h3>PC/Mac Desktop Support Engineer</h3>
+                            <p class="job-company">Nike EMEA HQ (via UNIT4)</p>
+                        </div>
+                        <span class="job-period">Mar 2007 – Oct 2011</span>
+                    </div>
+                    <p>Grew from Front-Office and Back-Office Engineer to IT All-round Engineer and PC/Mac Desktop Support Engineer.</p>
+                </div>
+            </li>
+        </ol>
+
+        <div class="center reveal">
+            <a href="https://www.linkedin.com/in/mitchelljoshuabakker/" class="btn btn-outline" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i> Full profile on LinkedIn</a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Certifications ===== -->
+<section class="section certifications" id="certifications">
+    <div class="certs-glow" aria-hidden="true"></div>
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="section-kicker kicker-light">Verified on Credly</span>
+            <h2 class="section-title">Certifications</h2>
+        </div>
+
+        <div class="cert-grid">
+            <a class="cert reveal" href="https://www.credly.com/badges/181684f0-67d7-4929-856a-082e7b8ff54a" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/images/badges/teams-voice-engineer-expert.png" alt="" loading="lazy" width="120" height="120">
+                <span class="cert-level">Expert</span>
+                <h3>Teams Voice Engineer Expert</h3>
+                <p>Microsoft 365 Certified</p>
+                <span class="cert-link">Verify <i class="fas fa-external-link-alt" aria-hidden="true"></i></span>
+            </a>
+            <a class="cert reveal" href="https://www.credly.com/badges/367732a5-4a5f-4462-ab70-3dc1d523ff4a" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/images/badges/teams-administrator-associate.png" alt="" loading="lazy" width="120" height="120">
+                <span class="cert-level">Associate</span>
+                <h3>Teams Administrator Associate</h3>
+                <p>Microsoft 365 Certified</p>
+                <span class="cert-link">Verify <i class="fas fa-external-link-alt" aria-hidden="true"></i></span>
+            </a>
+            <a class="cert reveal" href="https://www.credly.com/badges/d22a4619-54c8-4c70-91ab-75a980134766" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/images/badges/mcse-productivity.png" alt="" loading="lazy" width="120" height="120">
+                <span class="cert-level">Expert</span>
+                <h3>MCSE: Productivity</h3>
+                <p>Microsoft Certified Solutions Expert</p>
+                <span class="cert-link">Verify <i class="fas fa-external-link-alt" aria-hidden="true"></i></span>
+            </a>
+            <a class="cert reveal" href="https://www.credly.com/badges/f7c8e473-79fa-46b7-988f-339f30c01029" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/images/badges/mcsa-office365.png" alt="" loading="lazy" width="120" height="120">
+                <span class="cert-level">Associate</span>
+                <h3>MCSA: Office 365</h3>
+                <p>Microsoft Certified Solutions Associate</p>
+                <span class="cert-link">Verify <i class="fas fa-external-link-alt" aria-hidden="true"></i></span>
             </a>
         </div>
 
-    </div>
-    </div>
-</section>
-<!-- about section ends -->
+        <h3 class="recognition-title reveal">Microsoft recognition</h3>
+        <div class="recognition-grid">
+            <a class="recognition reveal" href="https://www.credly.com/badges/03fb0992-9df7-4ef9-8bad-7c4cf33e3658" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/images/badges/copilot-technical-champion.png" alt="" loading="lazy" width="56" height="56">
+                <div><strong>Copilot for Microsoft 365 Technical Champion</strong><span>2024</span></div>
+            </a>
+            <a class="recognition reveal" href="https://www.credly.com/badges/a45adf00-aac7-4d8d-9649-2f53030bc73b" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/images/badges/copilot-security-champion.png" alt="" loading="lazy" width="56" height="56">
+                <div><strong>Copilot for Microsoft 365 Security Champion</strong><span>2024</span></div>
+            </a>
+            <a class="recognition reveal" href="https://www.credly.com/badges/7e3f49d0-f2a8-4c89-b8b0-32f3e580a378" target="_blank" rel="noopener noreferrer">
+                <img src="./assets/images/badges/converged-communications-bootcamp.png" alt="" loading="lazy" width="56" height="56">
+                <div><strong>Converged Communications Partner Bootcamp</strong><span>2024</span></div>
+            </a>
+        </div>
 
-<!-- experience section starts -->
-<section class="experience" id="experience">
-    <h2 class="heading"><i class="fas fa-briefcase"></i> My <span>Experience</span></h2>
-
-    <ol class="timeline">
-        <li class="job current">
-            <div class="job-period">Mar 2025 – present</div>
-            <h3>Solution Specialist</h3>
-            <div class="job-company">Rapid Circle</div>
-            <p>Solution Specialist for Microsoft Unified Communications, with a focus on Microsoft Teams and Microsoft Copilot.</p>
-        </li>
-        <li class="job">
-            <div class="job-period">Nov 2017 – Mar 2025</div>
-            <h3>Senior Consultant Microsoft Teams / Skype for Business</h3>
-            <div class="job-company">Avanade</div>
-            <p>Helped customers get the most out of Microsoft Teams, Skype for Business Online and hybrid environments. Started as Consultant and became Senior Consultant in 2019.</p>
-        </li>
-        <li class="job">
-            <div class="job-period">Apr 2015 – Oct 2017</div>
-            <h3>Technical Consultant</h3>
-            <div class="job-company">VodafoneZiggo (Vodafone)</div>
-            <p>Designed and implemented Microsoft UC solutions on Lync Server 2013, Skype for Business Server 2015 and Office 365 for national and international clients in education, government, finance, real estate, manufacturing and retail, with a focus on Enterprise Voice. Started as Cloud Productivity Support Engineer.</p>
-        </li>
-        <li class="job">
-            <div class="job-period">Oct 2011 – Apr 2015</div>
-            <h3>Technical Support Specialist</h3>
-            <div class="job-company">UNIT4 Benelux</div>
-            <p>Escalation specialist for IT managers at customer organisations, carrying out changes and health checks on more than 200 servers. Grew from Skilled Desk Agent to Expert Support Engineer (Datacenter) and Technical Support Specialist (Hybrid Computing).</p>
-        </li>
-        <li class="job">
-            <div class="job-period">Mar 2007 – Oct 2011</div>
-            <h3>PC/Mac Desktop Support Engineer</h3>
-            <div class="job-company">Nike EMEA HQ (via UNIT4)</div>
-            <p>Grew from Front-Office and Back-Office Engineer to IT All-round Engineer and PC/Mac Desktop Support Engineer.</p>
-        </li>
-    </ol>
-
-    <div class="cert-all">
-        <a href="https://www.linkedin.com/in/mitchelljoshuabakker/" class="btn" target="_blank" rel="noopener noreferrer"><span>Full profile on LinkedIn</span>
-            <i class="fab fa-linkedin"></i>
-        </a>
+        <div class="center reveal">
+            <a href="https://www.credly.com/users/mitchell-bakker" class="btn btn-light" target="_blank" rel="noopener noreferrer">All badges on Credly <i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+        </div>
     </div>
 </section>
-<!-- experience section ends -->
 
-<!-- certifications section starts -->
-<section class="certifications" id="certifications">
-    <h2 class="heading"><i class="fas fa-award"></i> My <span>Certifications</span></h2>
-
-    <div class="cert-grid">
-        <a class="cert" href="https://www.credly.com/badges/181684f0-67d7-4929-856a-082e7b8ff54a" target="_blank" rel="noopener noreferrer">
-            <img src="./assets/images/badges/teams-voice-engineer-expert.png" alt="Microsoft 365 Certified: Teams Voice Engineer Expert badge" loading="lazy" width="140" height="140">
-            <h3>Teams Voice Engineer Expert</h3>
-            <p>Microsoft 365 Certified</p>
-        </a>
-        <a class="cert" href="https://www.credly.com/badges/367732a5-4a5f-4462-ab70-3dc1d523ff4a" target="_blank" rel="noopener noreferrer">
-            <img src="./assets/images/badges/teams-administrator-associate.png" alt="Microsoft 365 Certified: Teams Administrator Associate badge" loading="lazy" width="140" height="140">
-            <h3>Teams Administrator Associate</h3>
-            <p>Microsoft 365 Certified</p>
-        </a>
-        <a class="cert" href="https://www.credly.com/badges/d22a4619-54c8-4c70-91ab-75a980134766" target="_blank" rel="noopener noreferrer">
-            <img src="./assets/images/badges/mcse-productivity.png" alt="MCSE: Productivity badge" loading="lazy" width="140" height="140">
-            <h3>MCSE: Productivity</h3>
-            <p>Microsoft Certified Solutions Expert</p>
-        </a>
-        <a class="cert" href="https://www.credly.com/badges/f7c8e473-79fa-46b7-988f-339f30c01029" target="_blank" rel="noopener noreferrer">
-            <img src="./assets/images/badges/mcsa-office365.png" alt="MCSA: Office 365 badge" loading="lazy" width="140" height="140">
-            <h3>MCSA: Office 365</h3>
-            <p>Microsoft Certified Solutions Associate</p>
-        </a>
-    </div>
-
-    <h3 class="cert-subheading">Microsoft recognition</h3>
-    <div class="cert-grid cert-grid-small">
-        <a class="cert" href="https://www.credly.com/badges/03fb0992-9df7-4ef9-8bad-7c4cf33e3658" target="_blank" rel="noopener noreferrer">
-            <img src="./assets/images/badges/copilot-technical-champion.png" alt="Copilot for Microsoft 365 Technical Champion badge" loading="lazy" width="90" height="90">
-            <h3>Copilot for Microsoft 365 Technical Champion</h3>
-            <p>2024</p>
-        </a>
-        <a class="cert" href="https://www.credly.com/badges/a45adf00-aac7-4d8d-9649-2f53030bc73b" target="_blank" rel="noopener noreferrer">
-            <img src="./assets/images/badges/copilot-security-champion.png" alt="Copilot for Microsoft 365 Security Champion badge" loading="lazy" width="90" height="90">
-            <h3>Copilot for Microsoft 365 Security Champion</h3>
-            <p>2024</p>
-        </a>
-        <a class="cert" href="https://www.credly.com/badges/7e3f49d0-f2a8-4c89-b8b0-32f3e580a378" target="_blank" rel="noopener noreferrer">
-            <img src="./assets/images/badges/converged-communications-bootcamp.png" alt="Microsoft Converged Communications Partner Bootcamp badge" loading="lazy" width="90" height="90">
-            <h3>Converged Communications Partner Bootcamp</h3>
-            <p>2024</p>
-        </a>
-    </div>
-
-    <div class="cert-all">
-        <a href="https://www.credly.com/users/mitchell-bakker" class="btn" target="_blank" rel="noopener noreferrer"><span>All badges on Credly</span>
-            <i class="fas fa-external-link-alt"></i>
-        </a>
+<!-- ===== Contact ===== -->
+<section class="section contact">
+    <div class="container">
+        <div class="contact-card reveal">
+            <div>
+                <h2>Let's talk Teams, calling or Copilot</h2>
+                <p>Working on a move to Teams Phone, new meeting rooms or a Copilot rollout? I'm happy to think along.</p>
+            </div>
+            <a href="https://www.linkedin.com/in/mitchelljoshuabakker/" class="btn btn-light" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i> Message me on LinkedIn</a>
+        </div>
     </div>
 </section>
-<!-- certifications section ends -->
 
-<!-- footer section starts -->
-<section class="footer">
+</main>
 
-  <div class="box-container">
+<footer class="footer">
+    <div class="container footer-inner">
+        <p>© 2026 Mitchell Bakker</p>
+        <ul class="socials socials-small" aria-label="Social profiles">
+            <li><a href="https://www.linkedin.com/in/mitchelljoshuabakker/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a href="https://github.com/mitchelljb" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+            <li><a href="https://twitter.com/mitchell_bakker" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+</footer>
 
-      <div class="box">
-          <h3>Mitchell Bakker</h3>
-          <p>Thank you for visiting. Want to talk about Microsoft Teams, calling or collaboration? Connect with me on LinkedIn.</p>
-      </div>
-
-      <div class="box">
-          <h3>contact info</h3>
-          <p> <i class="fas fa-map-marked-alt"></i>The Netherlands</p>
-          <div class="share">
-
-              <a href="https://www.linkedin.com/in/mitchelljoshuabakker" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"></a>
-              <a href="https://github.com/mitchelljb" class="fab fa-github" aria-label="GitHub" target="_blank" rel="noopener noreferrer"></a>
-              <a href="https://twitter.com/mitchell_bakker" class="fab fa-twitter" aria-label="Twitter" target="_blank" rel="noopener noreferrer"></a>
-          </div>
-      </div>
-  </div>
-
-  <p class="credit">© 2026 Mitchell Bakker</p>
-
-</section>
-<!-- footer section ends -->
-
-
-<!-- scroll top btn -->
-<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
-<!-- scroll back to top -->
-
-
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
-<!-- jquery cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- typed.js cdn -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- particle.js links -->
-<script src="./assets/js/particles.min.js"></script>
-<script src="./assets/js/app.js"></script>
-
-<!-- vanilla tilt.js links -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<!-- scroll reveal anim -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js" integrity="sha512-Kr+RPfLjQ71E0cJ9nseJ6jwTrnmMnuSPnnsVQQ/ZYYCjOHKfJcWj8ILICXnvf9A7ZQChNzIbr9x/ZAxA6xAZlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-
-<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
-
-<script src="./assets/js/script.js"></script>
-
+<script src="./assets/js/main.js"></script>
 </body>
 </html>
