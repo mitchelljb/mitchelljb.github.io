@@ -76,7 +76,7 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); line-height: 1.2;
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 4.5rem; }
 .brand { display: flex; align-items: center; color: #fff; }
 .signature {
-  display: block; width: 11rem; aspect-ratio: 272 / 50; background: #fff;
+  display: block; width: 11rem; aspect-ratio: 800 / 144; background: #fff;
   -webkit-mask: url("../images/signature.png") no-repeat center / contain;
           mask: url("../images/signature.png") no-repeat center / contain;
   transition: background 0.3s ease;
