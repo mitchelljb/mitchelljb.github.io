@@ -1223,3 +1223,98 @@ form .button-area {
   top: calc(100% - 12rem);
 }
 /* scroll top ends */
+
+/* certifications section starts */
+.certifications {
+  background: #f7f7f7;
+  min-height: auto;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+.certifications * {
+  text-transform: none;
+}
+.certifications .cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+.certifications .cert {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.08);
+}
+.certifications .cert:hover,
+.certifications .cert:focus-visible {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 1rem 2rem rgba(66, 1, 119, 0.18);
+}
+.certifications .cert img {
+  width: 14rem;
+  height: 14rem;
+  object-fit: contain;
+}
+.certifications .cert h3 {
+  margin-top: 1.5rem;
+  font-size: 1.8rem;
+  color: rgb(27, 27, 27);
+}
+.certifications .cert p {
+  margin-top: 0.5rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #555;
+}
+.certifications .cert-subheading {
+  margin-top: 5rem;
+  text-align: center;
+  font-size: 2.2rem;
+  color: rgb(32, 32, 32);
+}
+.certifications .cert-grid-small {
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  margin-top: 2.5rem;
+}
+.certifications .cert-grid-small .cert {
+  padding: 2rem 1.5rem;
+}
+.certifications .cert-grid-small .cert img {
+  width: 9rem;
+  height: 9rem;
+}
+.certifications .cert-grid-small .cert h3 {
+  font-size: 1.5rem;
+}
+.certifications .cert-all {
+  margin-top: 4rem;
+  text-align: center;
+}
+.certifications .cert-all .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 3rem;
+  border-radius: 0.5em;
+  background: #2506ad;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: 600;
+  box-shadow: 0 5px 10px rgba(48, 68, 247, 0.6);
+}
+.certifications .cert-all .btn:hover {
+  background: #1a047e;
+}
+@media (max-width: 450px) {
+  .certifications .cert-grid,
+  .certifications .cert-grid-small {
+    grid-template-columns: 1fr;
+  }
+}
+/* certifications section ends */

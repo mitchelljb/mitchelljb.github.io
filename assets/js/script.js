@@ -55,7 +55,7 @@ document.addEventListener('visibilitychange',
 
 // <!-- typed js effect starts -->
 var typed = new Typed(".typing-text", {
-    strings: ["Microsoft Teams", "Unified Communications", "Azure Communication Services", "Skype for Business", "Power Virtual Agents"],
+    strings: ["Microsoft Teams", "Teams Phone", "Teams Rooms", "Copilot Studio", "Azure Communication Services"],
     loop: true,
     typeSpeed: 50,
     backSpeed: 25,
@@ -82,24 +82,6 @@ VanillaTilt.init(document.querySelectorAll(".tilt"), {
 // window.onload = fadeOut;
 // pre loader end
 
-// disable developer mode
-document.onkeydown = function (e) {
-    if (e.keyCode == 123) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
-        return false;
-    }
-    if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
-        return false;
-    }
-}
 
 // Start of Tawk.to Live Chat
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -141,6 +123,9 @@ srtop.reveal('.about .content .tag', { delay: 200 });
 srtop.reveal('.about .content p', { delay: 200 });
 srtop.reveal('.about .content .box-container', { delay: 200 });
 srtop.reveal('.about .content .resumebtn', { delay: 200 });
+
+/* SCROLL CERTIFICATIONS */
+srtop.reveal('.certifications .cert', { interval: 150 });
 
 
 /* SCROLL SKILLS */
