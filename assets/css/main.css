@@ -74,12 +74,14 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); line-height: 1.2;
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 4.5rem; }
-.brand { display: flex; align-items: center; gap: 0.7rem; color: #fff; font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; }
-.brand-mark {
-  display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border-radius: 0.75rem;
-  background: var(--grad); color: #fff; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.02em;
-  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.45);
+.brand { display: flex; align-items: center; color: #fff; }
+.signature {
+  display: block; width: 11rem; aspect-ratio: 272 / 50; background: #fff;
+  -webkit-mask: url("../images/signature.png") no-repeat center / contain;
+          mask: url("../images/signature.png") no-repeat center / contain;
+  transition: background 0.3s ease;
 }
+.nav.scrolled .signature { background: linear-gradient(90deg, #6d28d9, #4f46e5); }
 .nav-links { display: flex; align-items: center; gap: 2rem; }
 .nav-links a { color: rgba(255, 255, 255, 0.82); font-weight: 500; font-size: 0.95rem; position: relative; }
 .nav-links a:not(.nav-cta)::after {
