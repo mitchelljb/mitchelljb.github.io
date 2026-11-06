@@ -371,7 +371,13 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); line-height: 1.2;
 
 /* "Teams Phone · Connected" card */
 .call-card { gap: 0.8rem; }
-.call-icon { background: linear-gradient(135deg, #22c55e, #16a34a) !important; animation: phone-ring 4s ease-in-out infinite; }
+.float-card .call-icon { position: relative; overflow: visible; background: linear-gradient(135deg, #7b83eb 0%, #5b5fc7 55%, #4b53bc 100%); box-shadow: 0 6px 14px rgba(91, 95, 199, 0.45); }
+.float-card .teams-tile { display: block; font-family: var(--font-head); font-weight: 800; font-size: 1.25rem; color: #fff; line-height: 1; }
+.float-card .call-badge {
+  position: absolute; right: -0.35rem; bottom: -0.35rem; display: grid; place-items: center;
+  width: 1.3rem; height: 1.3rem; border-radius: 50%; font-size: 0.6rem; color: #fff;
+  background: #22c55e; border: 2px solid #fff; animation: phone-ring 4s ease-in-out infinite;
+}
 .call-status { display: inline-flex !important; align-items: center; gap: 0.35rem; font-variant-numeric: tabular-nums; }
 .live-dot { width: 0.45rem; height: 0.45rem; border-radius: 50%; background: #22c55e; animation: blink 1.6s ease-in-out infinite; }
 @keyframes blink { 50% { opacity: 0.3; } }
