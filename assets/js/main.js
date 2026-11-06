@@ -94,13 +94,13 @@
         var prefix = el.getAttribute('data-prefix') || '';
         var suffix = el.getAttribute('data-suffix') || '';
         var start = null;
-        var duration = 1400;
+        var duration = 2600;
         function step(ts) {
           if (start === null) start = ts;
           var p = Math.min((ts - start) / duration, 1);
           var eased = 1 - Math.pow(1 - p, 3);
           el.textContent = prefix + Math.round(target * eased) + suffix;
-          if (p < 1) requestAnimationFrame(step);
+          if (p < 1) { requestAnimationFrame(step); } else { el.classList.add('pop'); }
         }
         el.textContent = prefix + '0' + suffix;
         requestAnimationFrame(step);
