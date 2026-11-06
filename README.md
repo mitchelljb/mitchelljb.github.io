@@ -1,7 +1,7 @@
 ## Portfolio-Website
 Portfolio website build using HTML5, CSS3, JavaScript and jQuery.
 
-<a href="https://mitchelljb.github.io/mrteams.nl/" target="_blank">**Visit Now** 🚀</a>
+<a href="https://mitchelljb.github.io/" target="_blank">**Visit Now** 🚀</a>
 
 
 
