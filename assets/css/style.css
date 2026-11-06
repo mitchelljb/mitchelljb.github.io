@@ -759,176 +759,6 @@ header .navbar ul li a:hover {
 }
 /* work section ends */
 
-/* experience section starts */
-.experience .timeline {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.experience .timeline::after {
-  content: "";
-  position: absolute;
-  width: 6px;
-  background: #020133;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  margin-left: -3px;
-  z-index: -2;
-}
-.experience .container {
-  padding: 10px 40px;
-  position: relative;
-  background-color: inherit;
-  width: 50%;
-}
-/*circles on timeline*/
-.experience .container::after {
-  content: "\f0b1";
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  right: -17px;
-  background-color: rgb(255, 255, 255);
-  border: 4px solid #ff9f55;
-  top: 15px;
-  border-radius: 50%;
-  z-index: 100;
-  font-size: 1.89rem;
-  text-align: center;
-  font-weight: 600;
-  color: #02094b;
-  font-family: "Font Awesome\ 5 Free";
-}
-.experience .left {
-  left: 0;
-}
-.experience .right {
-  left: 50%;
-}
-/* arrows pointing right */
-.experience .left::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  right: 30px;
-  border: medium solid #f68c09;
-  border-width: 10px 0 10px 10px;
-  border-color: transparent transparent transparent #f68c09;
-}
-/* arrows pointing left  */
-.experience .right::before {
-  content: " ";
-  height: 0;
-  position: absolute;
-  top: 22px;
-  width: 0;
-  z-index: 1;
-  left: 30px;
-  border: medium solid #f68c09;
-  border-width: 10px 10px 10px 0;
-  border-color: transparent #f68c09 transparent transparent;
-}
-.experience .right::after {
-  left: -16px;
-}
-.experience .content {
-  background-color: #f68c09;
-  position: relative;
-  border-radius: 6px;
-}
-.experience .content .tag {
-  font-size: 1.3rem;
-  padding-top: 1.5rem;
-  padding-left: 1.5rem;
-}
-.experience .content .desc {
-  margin-left: 1.5rem;
-  padding-bottom: 1rem;
-}
-.experience .content .desc h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-.experience .content .desc p {
-  font-size: 1.2rem;
-}
-/* view all button */
-.morebtn {
-  display: flex;
-  justify-content: center;
-}
-.morebtn .btn {
-  position: relative;
-  line-height: 0;
-  padding: 1.6rem 3rem;
-  border-radius: 0.5em;
-  transition: 0.5s;
-  color: #fff;
-  background: #2506ad;
-  box-shadow: 0px 5px 10px rgba(48, 68, 247, 0.6);
-  text-align: center;
-}
-.morebtn .btn span {
-  font-weight: 600;
-  font-size: 1.7rem;
-  font-family: "Nunito", sans-serif;
-}
-.morebtn .btn i {
-  margin-left: 0.3rem;
-  font-size: 1.5rem;
-  transition: 0.3s;
-}
-.morebtn .btn:hover {
-  background: #1a047e;
-}
-.morebtn .btn:hover i {
-  transform: translateX(5px);
-}
-
-/* Media queries - Responsive timeline on screens less than 600px wide */
-@media screen and (max-width: 600px) {
-  .experience {
-    min-height: 80vh;
-  }
-  .experience .timeline {
-    margin-top: 2rem;
-  }
-  .experience .timeline::after {
-    left: 31px;
-  }
-  .experience .container {
-    width: 100%;
-    padding-left: 8rem;
-    padding-right: 2rem;
-  }
-  .experience .container::after {
-    font-size: 2.2rem;
-  }
-  .experience .container::before {
-    left: 61px;
-    border: medium solid #f68c09;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent #f68c09 transparent transparent;
-  }
-  .experience .left::after {
-    left: 15px;
-  }
-  .experience .right::after {
-    left: 15px;
-  }
-  .experience .right {
-    left: 0%;
-  }
-  .morebtn {
-    margin-top: 3rem;
-  }
-}
-/* experience media queries ends */
-/* experience section ends */
 
 /* contact section starts */
 .contact {
@@ -1292,11 +1122,11 @@ form .button-area {
 .certifications .cert-grid-small .cert h3 {
   font-size: 1.5rem;
 }
-.certifications .cert-all {
+.cert-all {
   margin-top: 4rem;
   text-align: center;
 }
-.certifications .cert-all .btn {
+.cert-all .btn {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
@@ -1308,7 +1138,7 @@ form .button-area {
   font-weight: 600;
   box-shadow: 0 5px 10px rgba(48, 68, 247, 0.6);
 }
-.certifications .cert-all .btn:hover {
+.cert-all .btn:hover {
   background: #1a047e;
 }
 @media (max-width: 450px) {
@@ -1318,3 +1148,75 @@ form .button-area {
   }
 }
 /* certifications section ends */
+
+/* experience section starts */
+.experience {
+  background: #fff;
+  min-height: auto;
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+.experience * {
+  text-transform: none;
+}
+.experience .timeline {
+  list-style: none;
+  max-width: 80rem;
+  margin: 4rem auto 0;
+  padding-left: 3rem;
+  border-left: 0.3rem solid rgb(235, 202, 245);
+}
+.experience .job {
+  position: relative;
+  margin-bottom: 3.5rem;
+}
+.experience .job:last-child {
+  margin-bottom: 0;
+}
+.experience .job::before {
+  content: "";
+  position: absolute;
+  left: -4.05rem;
+  top: 0.4rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 0.3rem solid #420177;
+}
+.experience .job.current::before {
+  background: #420177;
+}
+.experience .job-period {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: rgb(115, 3, 167);
+}
+.experience .job h3 {
+  margin-top: 0.3rem;
+  font-size: 2rem;
+  color: rgb(27, 27, 27);
+}
+.experience .job-company {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #2506ad;
+}
+.experience .job p {
+  margin-top: 0.8rem;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.6;
+  color: #444;
+}
+@media (max-width: 450px) {
+  .experience .timeline {
+    padding-left: 2rem;
+  }
+  .experience .job::before {
+    left: -3.05rem;
+  }
+}
+/* experience section ends */
