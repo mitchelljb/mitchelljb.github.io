@@ -30,7 +30,7 @@
   });
 
   if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
+    document.querySelectorAll('.reveal, .draw-line').forEach(function (el) { el.classList.add('visible'); });
     return;
   }
 
@@ -49,7 +49,7 @@
   });
 
   // Reveal elements on scroll
-  var revealEls = document.querySelectorAll('.reveal');
+  var revealEls = document.querySelectorAll('.reveal, .draw-line');
   if (reduceMotion) {
     revealEls.forEach(function (el) { el.classList.add('visible'); });
   } else {
@@ -69,7 +69,7 @@
 
   // Rotating focus areas in the hero
   var rotator = document.getElementById('rotator');
-  var words = ['Microsoft Teams', 'Teams Phone', 'Teams Rooms', 'Microsoft Copilot', 'Azure Communication Services'];
+  var words = ['Microsoft Teams', 'Teams Phone', 'Direct Routing', 'Operator Connect', 'Teams Rooms', 'Microsoft Copilot', 'Azure Communication Services'];
   if (rotator && !reduceMotion) {
     var i = 0;
     setInterval(function () {
@@ -80,5 +80,44 @@
         rotator.classList.remove('out');
       }, 350);
     }, 2600);
+  }
+
+  // Count up the key figures when they come into view
+  var counters = document.querySelectorAll('[data-count]');
+  if (!reduceMotion) {
+    var counter = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        obs.unobserve(entry.target);
+        var el = entry.target;
+        var target = parseInt(el.getAttribute('data-count'), 10);
+        var prefix = el.getAttribute('data-prefix') || '';
+        var suffix = el.getAttribute('data-suffix') || '';
+        var start = null;
+        var duration = 1400;
+        function step(ts) {
+          if (start === null) start = ts;
+          var p = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = prefix + Math.round(target * eased) + suffix;
+          if (p < 1) requestAnimationFrame(step);
+        }
+        el.textContent = prefix + '0' + suffix;
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(function (el) { counter.observe(el); });
+  }
+
+  // Running call timer on the "Teams Phone · Connected" card
+  var timer = document.getElementById('callTimer');
+  if (timer) {
+    var seconds = 0;
+    setInterval(function () {
+      seconds++;
+      var m = Math.floor(seconds / 60);
+      var s = seconds % 60;
+      timer.textContent = (m < 10 ? '0' : '') + m + ':' + (s < 10 ? '0' : '') + s;
+    }, 1000);
   }
 })();
