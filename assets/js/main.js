@@ -16,7 +16,8 @@
   function setMenu(open) {
     links.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    var nl = document.documentElement.lang === 'nl';
+    toggle.setAttribute('aria-label', open ? (nl ? 'Menu sluiten' : 'Close menu') : (nl ? 'Menu openen' : 'Open menu'));
     toggle.querySelector('i').className = open ? 'fas fa-times' : 'fas fa-bars';
   }
   toggle.addEventListener('click', function () {
@@ -35,7 +36,7 @@
   }
 
   // Highlight the menu item of the section in view. Sections without their own
-  // menu item (hero, key figures, how I can help, contact) clear or keep the
+  // menu item (hero, key figures, how I can help) clear it or map to the
   // nearest one: "How I can help" belongs to About.
   var menuLinks = Array.prototype.slice.call(links.querySelectorAll('a[href^="#"]'));
   var owner = { help: 'about' };
