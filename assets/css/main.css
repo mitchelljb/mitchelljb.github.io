@@ -407,33 +407,31 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); line-height: 1.2;
 .focus-card { transition: box-shadow 0.25s ease, border-color 0.25s ease, translate 0.25s ease; }
 .focus-card:hover { translate: 0 -4px; }
 
-/* call flow diagram */
-.call-flow {
-  margin-top: 5rem; padding: 2.25rem 2rem 1.75rem; border-radius: 1.5rem;
-  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-md);
+/* How I can help */
+.help { margin-top: 5.5rem; }
+.help-head { text-align: center; margin-bottom: 2.5rem; }
+.help-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.help-card {
+  position: relative; display: grid; grid-template-columns: auto 1fr; column-gap: 1.1rem; align-items: start;
+  padding: 1.6rem 1.6rem 1.6rem 1.4rem; border-radius: var(--radius); overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, translate 0.25s ease;
 }
-.flow { display: flex; align-items: flex-start; }
-.flow-node { flex: 0 0 11rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.3rem; }
-.flow-node strong { font-family: var(--font-head); color: var(--ink); font-size: 0.95rem; line-height: 1.3; margin-top: 0.4rem; }
-.flow-node span:last-child { font-size: 0.82rem; color: var(--muted); line-height: 1.4; }
-.flow-icon {
-  display: grid; place-items: center; width: 3.5rem; height: 3.5rem; border-radius: 1rem;
-  background: var(--grad); color: #fff; font-size: 1.2rem; box-shadow: 0 8px 20px rgba(124, 58, 237, 0.35);
+.help-card::before {
+  content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+  background: var(--grad); transform: scaleY(0); transform-origin: top; transition: transform 0.35s ease;
 }
-.flow-link {
-  position: relative; flex: 1 1 auto; height: 2px; margin-top: 1.75rem; min-width: 2rem;
-  background: repeating-linear-gradient(90deg, #c4b5fd 0 8px, transparent 8px 14px);
-  background-size: 14px 2px; animation: dash 0.8s linear infinite;
+.help-card:hover { translate: 0 -4px; box-shadow: var(--shadow-md); border-color: #d8ccf5; }
+.help-card:hover::before { transform: scaleY(1); }
+.help-icon {
+  grid-row: span 2; display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 0.9rem;
+  background: var(--grad); color: #fff; font-size: 1.1rem; box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
 }
-.flow-pulse {
-  position: absolute; top: 50%; left: 0; width: 0.7rem; height: 0.7rem; margin-top: -0.35rem; border-radius: 50%;
-  background: #22c55e; box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25); animation: travel 2.4s ease-in-out infinite;
-}
-.flow-link:nth-child(4) .flow-pulse { animation-delay: 0.8s; }
-.flow-link:nth-child(6) .flow-pulse { animation-delay: 1.6s; }
-@keyframes dash { to { background-position: 14px 0; } }
-@keyframes travel { 0% { left: 0; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { left: calc(100% - 0.7rem); opacity: 0; } }
-.call-flow figcaption { margin-top: 1.75rem; text-align: center; font-size: 0.9rem; color: var(--muted); }
+.help-card h3 { font-size: 1.08rem; line-height: 1.35; margin-bottom: 0.45rem; }
+.help-card p { color: var(--muted); font-size: 0.95rem; line-height: 1.6; }
+.help-card:hover .fa-phone-alt { display: inline-block; animation: phone-ring-fast 0.8s ease-in-out; }
+.help-cta { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem 1.5rem; margin-top: 2.25rem; text-align: center; }
+.help-cta p { color: var(--ink-soft); font-weight: 500; }
 
 /* timeline line draws itself */
 .js .draw-line::before { transform: scaleY(0); transform-origin: top; transition: transform 1.8s ease; }
@@ -449,17 +447,10 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); line-height: 1.2;
 .cert:hover::after { left: 120%; }
 
 @media (max-width: 760px) {
-  .flow { flex-direction: column; align-items: center; }
-  .flow-node { flex: none; width: 100%; max-width: 18rem; }
-  .flow-link {
-    width: 2px; height: 2.5rem; min-width: 0; margin: 0.75rem 0; flex: none;
-    background: repeating-linear-gradient(180deg, #c4b5fd 0 8px, transparent 8px 14px); background-size: 2px 14px;
-    animation: dash-v 0.8s linear infinite;
-  }
-  .flow-pulse { left: 50%; margin-left: -0.35rem; margin-top: 0; animation-name: travel-v; }
-  @keyframes dash-v { to { background-position: 0 14px; } }
-  @keyframes travel-v { 0% { top: 0; opacity: 0; } 15% { opacity: 1; } 85% { opacity: 1; } 100% { top: calc(100% - 0.7rem); opacity: 0; } }
-  .call-flow { padding: 2rem 1.25rem 1.5rem; }
+  .help { margin-top: 4rem; }
+  .help-grid { grid-template-columns: 1fr; }
+  .help-card { padding: 1.3rem 1.2rem; column-gap: 0.9rem; }
+  .help-icon { width: 2.6rem; height: 2.6rem; font-size: 1rem; }
 }
 @media (max-width: 520px) {
   .float-card .wave { display: none; }
