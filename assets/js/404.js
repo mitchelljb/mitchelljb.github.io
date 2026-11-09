@@ -1,8 +1,5 @@
-$(document).ready(function(){
-
-    $('#menu').click(function(){
-        $(this).toggleClass('fa-times');
-        $('.navbar').toggleClass('nav-toggle');
-    });
-});
-
+// Keep the footer year current
+(function () {
+  var year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+})();

@@ -1,20 +1,16 @@
-## Portfolio-Website
-Portfolio website build using HTML5, CSS3, JavaScript and jQuery.
+## Mitchell Bakker
 
-<a href="https://mitchellbakker.nl/" target="_blank">**Visit Now** 🚀</a>
+Personal website of Mitchell Bakker, Solution Specialist Microsoft Teams & Copilot.
 
+**[mitchellbakker.nl](https://mitchellbakker.nl/)**
 
+### Built with
+- Plain HTML, CSS and JavaScript, no build step or framework
+- Self-hosted fonts: [Inter](https://rsms.me/inter/) and [Plus Jakarta Sans](https://github.com/tokotype/PlusJakartaSans) (SIL Open Font License 1.1)
+- Icons by [Font Awesome Free](https://fontawesome.com/) 5.15.3
+- Hosted on GitHub Pages behind Cloudflare
 
-### Extras : 
-Particle.js, Typed.js, Tilt.js, Scroll Reveal and Font Awesome
+### Contact
+Connect with me on [LinkedIn](https://www.linkedin.com/in/mitchelljoshuabakker/).
 
-
-
-<h2>📬 Contact</h2>
-
-
-If you want to contact me, you can reach me through below handles.
-
-&nbsp;&nbsp;<a href="https://www.linkedin.com/in/mitchelljoshuabakker/"><img src="https://www.felberpr.com/wp-content/uploads/linkedin-logo.png" width="30"></img></a>
-
-© 2026 Mitchell Bakker
+© Mitchell Bakker

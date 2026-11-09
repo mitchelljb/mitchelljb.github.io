@@ -30,12 +30,31 @@
     <link rel="icon" href="./assets/images/favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="./assets/images/apple-touch-icon.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap">
+    <link rel="preload" href="./assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="./assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="./assets/css/fonts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="./assets/css/main.css">
     <script>document.documentElement.classList.add("js");</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mitchell Bakker",
+        "url": "https://mitchellbakker.nl/",
+        "image": "https://mitchellbakker.nl/assets/images/profile.jpg",
+        "jobTitle": "Solution Specialist Microsoft Teams & Copilot",
+        "worksFor": { "@type": "Organization", "name": "Rapid Circle" },
+        "address": { "@type": "PostalAddress", "addressCountry": "NL" },
+        "knowsLanguage": ["nl", "en"],
+        "knowsAbout": ["Microsoft Teams", "Microsoft Teams Phone", "Enterprise Voice", "Direct Routing", "Operator Connect", "Microsoft Teams Rooms", "Microsoft Copilot", "Unified Communications"],
+        "sameAs": [
+            "https://www.linkedin.com/in/mitchelljoshuabakker/",
+            "https://github.com/mitchelljb",
+            "https://www.credly.com/users/mitchell-bakker"
+        ]
+    }
+    </script>
 </head>
 <body>
 
@@ -354,7 +373,7 @@
 
 <footer class="footer">
     <div class="container footer-inner">
-        <p>© 2026 Mitchell Bakker</p>
+        <p>© <span id="year">2026</span> Mitchell Bakker</p>
         <ul class="socials socials-small" aria-label="Social profiles">
             <li><a href="https://www.linkedin.com/in/mitchelljoshuabakker/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
             <li><a href="https://github.com/mitchelljb" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a></li>

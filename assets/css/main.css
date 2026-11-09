@@ -455,3 +455,29 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); line-height: 1.2;
 @media (max-width: 520px) {
   .float-card .wave { display: none; }
 }
+
+/* =========================================================
+   404 page
+   ========================================================= */
+.page-404 { display: flex; flex-direction: column; min-height: 100vh; background: var(--night); }
+.hero-404 { flex: 1; display: flex; align-items: center; padding: 7.5rem 0 5rem; text-align: center; }
+.notfound { display: flex; flex-direction: column; align-items: center; }
+.notfound .hero-sub { margin-inline: auto; }
+.notfound .hero-actions { justify-content: center; }
+.hero-404 h1 { margin: 0.25rem 0 0.5rem; font-size: clamp(2rem, 4.5vw, 3.25rem); }
+.code-404 {
+  font-family: var(--font-head); font-weight: 800; line-height: 1; letter-spacing: -0.04em;
+  font-size: clamp(6rem, 20vw, 11rem); margin-top: 1.75rem;
+}
+.call-ended {
+  display: inline-flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1.1rem 0.7rem 0.75rem;
+  border-radius: 1rem; background: rgba(255, 255, 255, 0.96); color: var(--ink); text-align: left;
+  box-shadow: var(--shadow-lg); animation: blob-float 6s ease-in-out infinite;
+}
+.call-ended strong { display: block; font-family: var(--font-head); font-size: 0.92rem; line-height: 1.25; }
+.call-ended span:not(.call-ended-icon) { display: block; font-size: 0.78rem; color: var(--muted); }
+.call-ended-icon {
+  display: grid; place-items: center; width: 2.5rem; height: 2.5rem; border-radius: 50%;
+  background: #c4314b; color: #fff; font-size: 0.95rem;
+}
+@keyframes blob-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
