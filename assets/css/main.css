@@ -660,46 +660,70 @@ html:not(.js) .reco-slide + .reco-slide { margin-top: 2.5rem; }
 /* ===== Talks ===== */
 .talks-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 2rem; align-items: stretch; }
 .talk-feature {
-  position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 2.5rem; border-radius: 1.75rem; color: #fff; min-height: 24rem;
+  position: relative; overflow: hidden; display: grid;
+  padding: 2.5rem 2.5rem 3.5rem; border-radius: 1.75rem; color: #fff; min-height: 25rem;
   background: radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.18), transparent 45%), var(--grad);
   box-shadow: 0 30px 60px -20px rgba(91, 33, 182, 0.45);
 }
-.talk-feature::before {
-  content: "19d"; font-family: "Font Awesome 5 Free"; font-weight: 900; position: absolute; right: -1.5rem; top: -1rem;
-  font-size: 13rem; line-height: 1; color: rgba(255, 255, 255, 0.14); pointer-events: none; transform: rotate(-12deg);
+.talk-slide { grid-area: 1 / 1; display: flex; flex-direction: column; justify-content: flex-end; }
+.js .talk-slide { opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity 0.25s ease, transform 0.25s ease, visibility 0s linear 0.25s; }
+.js .talk-slide.is-active { opacity: 1; visibility: visible; transform: none; transition: opacity 0.45s ease 0.25s, transform 0.45s ease 0.25s, visibility 0s linear 0.25s; }
+html:not(.js) .talk-feature { display: block; }
+html:not(.js) .talk-slide + .talk-slide { margin-top: 2.5rem; }
+html:not(.js) .talk-dots, html:not(.js) .talk-progress { display: none; }
+.talk-watermark {
+  position: absolute; right: -1.5rem; top: -1.5rem; font-size: 12rem; line-height: 1;
+  color: rgba(255, 255, 255, 0.13); transform: rotate(-12deg); pointer-events: none;
 }
 .talk-badge {
   align-self: flex-start; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: auto;
   padding: 0.35rem 0.85rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
   background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.talk-feature h3 { color: #fff; font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; margin-top: 2.5rem; }
-.talk-count { display: flex; align-items: baseline; gap: 0.75rem; margin: 0.75rem 0 1rem; }
+.talk-slide h3 { position: relative; color: #fff; font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; margin-top: 2.5rem; }
+.talk-count { display: flex; align-items: baseline; gap: 0.75rem; margin: 0.75rem 0 0; }
 .talk-num { font-family: var(--font-head); font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; }
 .talk-count span:last-child { font-weight: 600; color: rgba(255, 255, 255, 0.9); }
-.talk-feature > p:last-child { color: rgba(255, 255, 255, 0.85); max-width: 32rem; }
+.talk-text { position: relative; margin-top: 1rem; color: rgba(255, 255, 255, 0.88); max-width: 32rem; }
+.talk-dots { position: absolute; left: 2.5rem; bottom: 1.6rem; display: flex; gap: 0.45rem; }
+.talk-dot {
+  width: 0.55rem; height: 0.55rem; padding: 0; border: 0; border-radius: 999px; cursor: pointer;
+  background: rgba(255, 255, 255, 0.4); transition: width 0.3s ease, background 0.3s ease;
+}
+.talk-dot.is-active { width: 1.6rem; background: #fff; }
+
 .talk-side { display: flex; flex-direction: column; }
 .talk-side-title { font-size: 1.1rem; margin-bottom: 1rem; }
-.talk-topics { list-style: none; display: grid; gap: 0.75rem; }
-.talk-topics li {
-  display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; border-radius: 1rem;
-  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+.talk-tabs { display: grid; gap: 0.6rem; }
+.talk-tab {
+  position: relative; overflow: hidden; display: flex; align-items: center; gap: 1rem; width: 100%; text-align: left;
+  padding: 0.9rem 1.15rem; border-radius: 1rem; cursor: pointer; font: inherit; color: var(--ink-soft);
+  background: rgba(255, 255, 255, 0.55); border: 1px solid var(--line);
+  transition: background 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
-.talk-topics li:hover { transform: translateX(4px); border-color: #d8ccf5; box-shadow: var(--shadow-md); }
+.talk-tab:hover { background: var(--surface); transform: translateX(4px); }
+.talk-tab:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
+.talk-tab.is-active { background: var(--surface); border-color: #d8ccf5; box-shadow: var(--shadow-md); color: var(--ink); }
 .talk-icon {
   flex: none; display: grid; place-items: center; width: 2.6rem; height: 2.6rem; border-radius: 0.8rem;
-  background: #f1eafe; color: var(--violet);
+  background: #f1eafe; color: var(--violet); transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
 }
-.talk-topics strong { display: block; color: var(--ink); font-family: var(--font-head); }
-.talk-topics small { display: block; color: var(--muted); font-size: 0.88rem; margin-top: 0.1rem; }
+.talk-tab.is-active .talk-icon { background: var(--grad); color: #fff; box-shadow: 0 6px 16px rgba(124, 58, 237, 0.35); }
+.talk-tab-text strong { display: block; font-family: var(--font-head); font-size: 0.98rem; line-height: 1.3; }
+.talk-tab-text small { display: block; color: var(--muted); font-size: 0.85rem; margin-top: 0.1rem; }
+.talk-progress { position: absolute; left: 0; bottom: 0; height: 3px; width: 0; background: var(--grad); transition: width 0.1s linear; }
+.talk-tab:not(.is-active) .talk-progress { transition: none; }
 .talk-cta { margin-top: auto; padding-top: 1.5rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.25rem; }
 .talk-cta p { color: var(--ink-soft); font-weight: 500; }
 @media (max-width: 960px) {
   .talks-grid { grid-template-columns: 1fr; }
-  .talk-feature { min-height: 0; }
+  .talk-feature { min-height: 22rem; }
 }
 @media (max-width: 520px) {
-  .talk-feature { padding: 1.75rem; }
+  .talk-feature { padding: 1.75rem 1.75rem 3.25rem; }
+  .talk-dots { left: 1.75rem; }
+  .talk-tab-text small { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .talk-slide, .js .talk-slide.is-active { transition: none; transform: none; }
 }

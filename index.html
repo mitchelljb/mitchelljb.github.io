@@ -325,21 +325,60 @@
             <p class="section-sub">Guest lectures and training sessions, sharing what I see in the field.</p>
         </div>
 
-        <div class="talks-grid">
-            <article class="talk-feature reveal">
-                <span class="talk-badge"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Recurring guest lecture</span>
-                <h3>Erasmus University Rotterdam</h3>
-                <p class="talk-count"><span class="talk-num">5+</span><span>guest lectures for students</span></p>
-                <p>Lectures on how users deal with change. Not about the technology, but about the people: what I experience in real projects when organisations introduce new ways of working, and what it takes to bring everyone along.</p>
-            </article>
+        <div class="talks-grid" id="talksCarousel">
+            <div class="talk-feature reveal">
+                <article class="talk-slide is-active" id="talk-1" role="tabpanel" aria-labelledby="talk-tab-1">
+                    <i class="fas fa-graduation-cap talk-watermark" aria-hidden="true"></i>
+                    <span class="talk-badge"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Recurring guest lecture</span>
+                    <h3>Erasmus University Rotterdam</h3>
+                    <p class="talk-count"><span class="talk-num">5+</span><span>guest lectures for students</span></p>
+                    <p class="talk-text">Lectures on how users deal with change. Not about the technology, but about the people: what I experience in real projects when organisations introduce new ways of working, and what it takes to bring everyone along.</p>
+                </article>
+                <article class="talk-slide" id="talk-2" role="tabpanel" aria-labelledby="talk-tab-2">
+                    <i class="fas fa-clipboard-list talk-watermark" aria-hidden="true"></i>
+                    <span class="talk-badge"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Training session</span>
+                    <h3>Structured Teams meetings</h3>
+                    <p class="talk-text">Getting more out of every meeting: preparing with a clear agenda, assigning roles and using the right meeting options, so meetings start on time, stay on track and end with clear outcomes.</p>
+                </article>
+                <article class="talk-slide" id="talk-3" role="tabpanel" aria-labelledby="talk-tab-3">
+                    <i class="fas fa-chalkboard-teacher talk-watermark" aria-hidden="true"></i>
+                    <span class="talk-badge"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i> Training session</span>
+                    <h3>No more &ldquo;human PowerPoint clicker&rdquo;</h3>
+                    <p class="talk-text">Presenting together without anyone having to say &ldquo;next slide, please&rdquo;. Every presenter takes control of their own part of the presentation, so the hand-overs are smooth and the audience stays engaged.</p>
+                </article>
+                <article class="talk-slide" id="talk-4" role="tabpanel" aria-labelledby="talk-tab-4">
+                    <i class="fas fa-broadcast-tower talk-watermark" aria-hidden="true"></i>
+                    <span class="talk-badge"><i class="fas fa-broadcast-tower" aria-hidden="true"></i> Training session</span>
+                    <h3>Teams Town halls</h3>
+                    <p class="talk-text">Large online events done right: setting up a town hall, preparing presenters and organisers, and running the event so a large audience gets a professional experience.</p>
+                </article>
+                <div class="talk-dots"><button class="talk-dot is-active" type="button" tabindex="-1" aria-hidden="true"></button><button class="talk-dot" type="button" tabindex="-1" aria-hidden="true"></button><button class="talk-dot" type="button" tabindex="-1" aria-hidden="true"></button><button class="talk-dot" type="button" tabindex="-1" aria-hidden="true"></button></div>
+            </div>
 
             <div class="talk-side">
-                <h3 class="talk-side-title reveal">Training sessions</h3>
-                <ul class="talk-topics">
-                    <li class="reveal"><span class="talk-icon" aria-hidden="true"><i class="fas fa-clipboard-list"></i></span><span><strong>Structured Teams meetings</strong><small>Agenda, roles and meeting options, so every meeting stays on track</small></span></li>
-                    <li class="reveal"><span class="talk-icon" aria-hidden="true"><i class="fas fa-chalkboard-teacher"></i></span><span><strong>No more &ldquo;human PowerPoint clicker&rdquo;</strong><small>Presenting together with multiple presenters, each in control of their own slides</small></span></li>
-                    <li class="reveal"><span class="talk-icon" aria-hidden="true"><i class="fas fa-broadcast-tower"></i></span><span><strong>Teams Town halls</strong><small>Organising and presenting large online events with confidence</small></span></li>
-                </ul>
+                <h3 class="talk-side-title reveal">Lectures &amp; training sessions</h3>
+                <div class="talk-tabs reveal" role="tablist" aria-label="Talks">
+                    <button class="talk-tab is-active" type="button" role="tab" id="talk-tab-1" aria-controls="talk-1" aria-selected="true">
+                        <span class="talk-icon" aria-hidden="true"><i class="fas fa-graduation-cap"></i></span>
+                        <span class="talk-tab-text"><strong>Erasmus University Rotterdam</strong><small>Guest lecture on users and change</small></span>
+                        <span class="talk-progress" aria-hidden="true"></span>
+                    </button>
+                    <button class="talk-tab" type="button" role="tab" id="talk-tab-2" aria-controls="talk-2" aria-selected="false" tabindex="-1">
+                        <span class="talk-icon" aria-hidden="true"><i class="fas fa-clipboard-list"></i></span>
+                        <span class="talk-tab-text"><strong>Structured Teams meetings</strong><small>Agenda, roles and meeting options</small></span>
+                        <span class="talk-progress" aria-hidden="true"></span>
+                    </button>
+                    <button class="talk-tab" type="button" role="tab" id="talk-tab-3" aria-controls="talk-3" aria-selected="false" tabindex="-1">
+                        <span class="talk-icon" aria-hidden="true"><i class="fas fa-chalkboard-teacher"></i></span>
+                        <span class="talk-tab-text"><strong>No more &ldquo;human PowerPoint clicker&rdquo;</strong><small>Presenting with multiple presenters</small></span>
+                        <span class="talk-progress" aria-hidden="true"></span>
+                    </button>
+                    <button class="talk-tab" type="button" role="tab" id="talk-tab-4" aria-controls="talk-4" aria-selected="false" tabindex="-1">
+                        <span class="talk-icon" aria-hidden="true"><i class="fas fa-broadcast-tower"></i></span>
+                        <span class="talk-tab-text"><strong>Teams Town halls</strong><small>Large online events with confidence</small></span>
+                        <span class="talk-progress" aria-hidden="true"></span>
+                    </button>
+                </div>
                 <div class="talk-cta reveal">
                     <p>Looking for a speaker or trainer for a lecture, event or team?</p>
                     <a href="https://www.linkedin.com/in/mitchelljoshuabakker/" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i> Invite me</a>

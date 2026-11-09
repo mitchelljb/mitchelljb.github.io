@@ -325,21 +325,60 @@
             <p class="section-sub">Gastcolleges en trainingen, waarin ik deel wat ik in de praktijk zie.</p>
         </div>
 
-        <div class="talks-grid">
-            <article class="talk-feature reveal">
-                <span class="talk-badge"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Terugkerend gastcollege</span>
-                <h3>Erasmus Universiteit Rotterdam</h3>
-                <p class="talk-count"><span class="talk-num">5+</span><span>gastcolleges voor studenten</span></p>
-                <p>Hoorcolleges over hoe gebruikers omgaan met verandering. Niet over de techniek, maar over de mensen: wat ik in projecten meemaak wanneer organisaties nieuwe manieren van werken invoeren, en wat ervoor nodig is om iedereen mee te krijgen.</p>
-            </article>
+        <div class="talks-grid" id="talksCarousel">
+            <div class="talk-feature reveal">
+                <article class="talk-slide is-active" id="talk-1" role="tabpanel" aria-labelledby="talk-tab-1">
+                    <i class="fas fa-graduation-cap talk-watermark" aria-hidden="true"></i>
+                    <span class="talk-badge"><i class="fas fa-graduation-cap" aria-hidden="true"></i> Terugkerend gastcollege</span>
+                    <h3>Erasmus Universiteit Rotterdam</h3>
+                    <p class="talk-count"><span class="talk-num">5+</span><span>gastcolleges voor studenten</span></p>
+                    <p class="talk-text">Hoorcolleges over hoe gebruikers omgaan met verandering. Niet over de techniek, maar over de mensen: wat ik in projecten meemaak wanneer organisaties nieuwe manieren van werken invoeren, en wat ervoor nodig is om iedereen mee te krijgen.</p>
+                </article>
+                <article class="talk-slide" id="talk-2" role="tabpanel" aria-labelledby="talk-tab-2">
+                    <i class="fas fa-clipboard-list talk-watermark" aria-hidden="true"></i>
+                    <span class="talk-badge"><i class="fas fa-clipboard-list" aria-hidden="true"></i> Training</span>
+                    <h3>Gestructureerd vergaderen in Teams</h3>
+                    <p class="talk-text">Meer halen uit elke meeting: voorbereiden met een duidelijke agenda, rollen verdelen en de juiste vergaderopties gebruiken, zodat meetings op tijd beginnen, op koers blijven en eindigen met heldere afspraken.</p>
+                </article>
+                <article class="talk-slide" id="talk-3" role="tabpanel" aria-labelledby="talk-tab-3">
+                    <i class="fas fa-chalkboard-teacher talk-watermark" aria-hidden="true"></i>
+                    <span class="talk-badge"><i class="fas fa-chalkboard-teacher" aria-hidden="true"></i> Training</span>
+                    <h3>Geen &ldquo;menselijke PowerPoint-klikker&rdquo; meer</h3>
+                    <p class="talk-text">Samen presenteren zonder dat iemand &ldquo;volgende slide, graag&rdquo; hoeft te zeggen. Elke presentator neemt de regie over het eigen deel van de presentatie, zodat de overdrachten soepel gaan en het publiek erbij blijft.</p>
+                </article>
+                <article class="talk-slide" id="talk-4" role="tabpanel" aria-labelledby="talk-tab-4">
+                    <i class="fas fa-broadcast-tower talk-watermark" aria-hidden="true"></i>
+                    <span class="talk-badge"><i class="fas fa-broadcast-tower" aria-hidden="true"></i> Training</span>
+                    <h3>Teams Town halls</h3>
+                    <p class="talk-text">Grote online events goed geregeld: een town hall inrichten, presentatoren en organisatoren voorbereiden en het event zo draaien dat een groot publiek een professionele ervaring krijgt.</p>
+                </article>
+                <div class="talk-dots"><button class="talk-dot is-active" type="button" tabindex="-1" aria-hidden="true"></button><button class="talk-dot" type="button" tabindex="-1" aria-hidden="true"></button><button class="talk-dot" type="button" tabindex="-1" aria-hidden="true"></button><button class="talk-dot" type="button" tabindex="-1" aria-hidden="true"></button></div>
+            </div>
 
             <div class="talk-side">
-                <h3 class="talk-side-title reveal">Trainingen</h3>
-                <ul class="talk-topics">
-                    <li class="reveal"><span class="talk-icon" aria-hidden="true"><i class="fas fa-clipboard-list"></i></span><span><strong>Gestructureerd vergaderen in Teams</strong><small>Agenda, rollen en vergaderopties, zodat elke meeting op koers blijft</small></span></li>
-                    <li class="reveal"><span class="talk-icon" aria-hidden="true"><i class="fas fa-chalkboard-teacher"></i></span><span><strong>Geen &ldquo;menselijke PowerPoint-klikker&rdquo; meer</strong><small>Samen presenteren met meerdere presentatoren, ieder met de regie over de eigen slides</small></span></li>
-                    <li class="reveal"><span class="talk-icon" aria-hidden="true"><i class="fas fa-broadcast-tower"></i></span><span><strong>Teams Town halls</strong><small>Grote online events met vertrouwen organiseren en presenteren</small></span></li>
-                </ul>
+                <h3 class="talk-side-title reveal">Colleges &amp; trainingen</h3>
+                <div class="talk-tabs reveal" role="tablist" aria-label="Talks">
+                    <button class="talk-tab is-active" type="button" role="tab" id="talk-tab-1" aria-controls="talk-1" aria-selected="true">
+                        <span class="talk-icon" aria-hidden="true"><i class="fas fa-graduation-cap"></i></span>
+                        <span class="talk-tab-text"><strong>Erasmus Universiteit Rotterdam</strong><small>Gastcollege over gebruikers en verandering</small></span>
+                        <span class="talk-progress" aria-hidden="true"></span>
+                    </button>
+                    <button class="talk-tab" type="button" role="tab" id="talk-tab-2" aria-controls="talk-2" aria-selected="false" tabindex="-1">
+                        <span class="talk-icon" aria-hidden="true"><i class="fas fa-clipboard-list"></i></span>
+                        <span class="talk-tab-text"><strong>Gestructureerd vergaderen in Teams</strong><small>Agenda, rollen en vergaderopties</small></span>
+                        <span class="talk-progress" aria-hidden="true"></span>
+                    </button>
+                    <button class="talk-tab" type="button" role="tab" id="talk-tab-3" aria-controls="talk-3" aria-selected="false" tabindex="-1">
+                        <span class="talk-icon" aria-hidden="true"><i class="fas fa-chalkboard-teacher"></i></span>
+                        <span class="talk-tab-text"><strong>Geen &ldquo;menselijke PowerPoint-klikker&rdquo; meer</strong><small>Presenteren met meerdere presentatoren</small></span>
+                        <span class="talk-progress" aria-hidden="true"></span>
+                    </button>
+                    <button class="talk-tab" type="button" role="tab" id="talk-tab-4" aria-controls="talk-4" aria-selected="false" tabindex="-1">
+                        <span class="talk-icon" aria-hidden="true"><i class="fas fa-broadcast-tower"></i></span>
+                        <span class="talk-tab-text"><strong>Teams Town halls</strong><small>Grote online events met vertrouwen</small></span>
+                        <span class="talk-progress" aria-hidden="true"></span>
+                    </button>
+                </div>
                 <div class="talk-cta reveal">
                     <p>Op zoek naar een spreker of trainer voor een college, event of team?</p>
                     <a href="https://www.linkedin.com/in/mitchelljoshuabakker/" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i> Nodig me uit</a>
