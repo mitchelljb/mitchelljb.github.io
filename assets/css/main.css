@@ -264,6 +264,10 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); line-height: 1.2;
 .recognition img { width: 3.5rem; height: 3.5rem; flex-shrink: 0; }
 .recognition strong { display: block; color: #fff; font-size: 0.9rem; font-weight: 600; line-height: 1.35; }
 .recognition span { font-size: 0.8rem; color: #a59cc8; }
+.also-certified { margin: 1.5rem auto 0; max-width: 60rem; text-align: center; font-size: 0.9rem; line-height: 1.7; color: #a59cc8; }
+.also-certified i { color: #a78bfa; margin-right: 0.25rem; }
+.also-certified strong { color: #e4ddfb; font-weight: 600; white-space: nowrap; }
+.also-certified .sep { margin: 0 0.4rem; color: #6b628f; }
 
 /* ---------- Contact ---------- */
 .contact { padding: 5rem 0; }
