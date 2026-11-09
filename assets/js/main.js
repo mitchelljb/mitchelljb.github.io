@@ -34,19 +34,26 @@
     return;
   }
 
-  // Highlight the menu item of the section in view
-  var spy = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) return;
-      links.querySelectorAll('a').forEach(function (a) {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
-      });
+  // Highlight the menu item of the section in view. Sections without their own
+  // menu item (hero, key figures, how I can help, contact) clear or keep the
+  // nearest one: "How I can help" belongs to About.
+  var menuLinks = Array.prototype.slice.call(links.querySelectorAll('a[href^="#"]'));
+  var owner = { help: 'about' };
+  function setActive(id) {
+    menuLinks.forEach(function (a) { a.classList.toggle('active', a.getAttribute('href') === '#' + id); });
+  }
+  var sections = Array.prototype.slice.call(document.querySelectorAll('main > section'));
+  function updateSpy() {
+    var mid = window.innerHeight / 2, id = '';
+    sections.forEach(function (s) {
+      var r = s.getBoundingClientRect();
+      if (r.top <= mid && r.bottom > mid) id = s.id;
     });
-  }, { rootMargin: '-45% 0px -50% 0px' });
-  ['about', 'experience', 'certifications'].forEach(function (id) {
-    var section = document.getElementById(id);
-    if (section) spy.observe(section);
-  });
+    setActive(owner[id] || id);
+  }
+  window.addEventListener('scroll', updateSpy, { passive: true });
+  window.addEventListener('resize', updateSpy);
+  updateSpy();
 
   // Reveal elements on scroll
   var revealEls = document.querySelectorAll('.reveal, .draw-line');

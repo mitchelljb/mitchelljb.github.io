@@ -412,7 +412,7 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); line-height: 1.2;
 .focus-card:hover { translate: 0 -4px; }
 
 /* How I can help */
-.help { margin-top: 5.5rem; }
+.help { margin-top: 0; }
 .help-head { text-align: center; margin-bottom: 2.5rem; }
 .help-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 .help-card {
@@ -451,7 +451,7 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); line-height: 1.2;
 .cert:hover::after { left: 120%; }
 
 @media (max-width: 760px) {
-  .help { margin-top: 4rem; }
+  .help { margin-top: 0; }
   .help-grid { grid-template-columns: 1fr; }
   .help-card { padding: 1.3rem 1.2rem; column-gap: 0.9rem; }
   .help-icon { width: 2.6rem; height: 2.6rem; font-size: 1rem; }
@@ -584,4 +584,33 @@ html:not(.js) .reco-slide + .reco-slide { margin-top: 2.5rem; }
   .reco-stage { padding: 2.25rem 1.5rem 5.5rem; border-radius: 1.4rem; }
   .reco-mark { right: 1.25rem; top: 1.25rem; font-size: 3.25rem; }
   .reco-nav { left: 1.5rem; right: 1.5rem; bottom: 1.5rem; justify-content: space-between; }
+}
+
+/* =========================================================
+   One screen per section (desktop and laptop)
+   Every section fills the viewport and scrolling snaps to the next one.
+   Sections taller than the screen (e.g. Experience) scroll normally inside.
+   ========================================================= */
+@media (min-width: 961px) and (min-height: 600px) {
+  html { scroll-snap-type: y mandatory; scroll-padding-top: 0; }
+  main > section.section, .hero { scroll-snap-align: start; }
+  .contact { scroll-snap-align: end; }
+
+  /* hero + key figures together form the first screen */
+  .hero { min-height: calc(100vh - 4rem); display: flex; flex-direction: column; justify-content: center; padding: 6.5rem 0 7.5rem; }
+  .stats { margin-bottom: 0; }
+
+  main > section.section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 6rem 0 4rem; }
+  .recommendations { padding-top: 6rem; }
+
+  /* contact banner + footer together form the last screen */
+  main > section.contact { min-height: calc(100vh - 5.7rem); }
+}
+@media (min-width: 961px) and (min-height: 600px) {
+  .certifications .section-head { margin-bottom: 2.25rem; }
+  .certifications .recognition-title { margin: 2.25rem 0 1rem; }
+  .certifications .center { margin-top: 1.75rem; }
+}
+@media (min-width: 961px) and (min-height: 600px) {
+  main > section.certifications { padding: 5rem 0 3rem; }
 }
