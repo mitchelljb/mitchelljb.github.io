@@ -270,7 +270,6 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); line-height: 1.2;
 .also-certified .sep { margin: 0 0.4rem; color: #6b628f; }
 
 /* ---------- Contact ---------- */
-.contact { padding: 5rem 0; }
 .contact-card {
   display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
   padding: 2.75rem 3rem; border-radius: 1.75rem; color: #ede9fe;
@@ -594,7 +593,6 @@ html:not(.js) .reco-slide + .reco-slide { margin-top: 2.5rem; }
 @media (min-width: 961px) and (min-height: 600px) {
   html { scroll-snap-type: y mandatory; scroll-padding-top: 0; }
   main > section.section, .hero { scroll-snap-align: start; }
-  .contact { scroll-snap-align: end; }
 
   /* hero + key figures together form the first screen */
   .hero { min-height: calc(100vh - 4rem); display: flex; flex-direction: column; justify-content: center; padding: 6.5rem 0 7.5rem; }
@@ -603,8 +601,6 @@ html:not(.js) .reco-slide + .reco-slide { margin-top: 2.5rem; }
   main > section.section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 6rem 0 4rem; }
   .recommendations { padding-top: 6rem; }
 
-  /* contact banner + footer together form the last screen */
-  main > section.contact { min-height: calc(100vh - 5.7rem); }
 }
 @media (min-width: 961px) and (min-height: 600px) {
   .certifications .section-head { margin-bottom: 2.25rem; }
@@ -613,4 +609,26 @@ html:not(.js) .reco-slide + .reco-slide { margin-top: 2.5rem; }
 }
 @media (min-width: 961px) and (min-height: 600px) {
   main > section.certifications { padding: 5rem 0 3rem; }
+}
+
+/* contact banner at the bottom of the About screen */
+.about-contact { margin-top: 3rem; padding: 1.9rem 2.5rem; }
+.about-contact h2 { font-size: clamp(1.3rem, 2.3vw, 1.7rem); }
+@media (min-width: 961px) and (min-height: 600px) {
+  main > section.about { padding: 5.5rem 0 2.5rem; }
+  .about-contact { margin-top: 2.25rem; }
+  .footer { scroll-snap-align: end; }
+}
+/* Certifications + footer together form the last screen */
+@media (min-width: 961px) and (min-height: 600px) {
+  main > section.certifications { min-height: calc(100vh - 5.7rem); padding: 4.75rem 0 1.75rem; }
+  .certifications .section-head { margin-bottom: 1.5rem; }
+  .certifications .cert { padding: 1.5rem 1.25rem 1.25rem; }
+  .certifications .cert img { width: 6.25rem; height: 6.25rem; }
+  .certifications .recognition-title { margin: 1.75rem 0 0.85rem; }
+  .certifications .also-certified { margin-top: 1.1rem; }
+  .certifications .center { margin-top: 1.25rem; }
+}
+@media (max-width: 520px) {
+  .about-contact { padding: 1.75rem 1.5rem; margin-top: 2.5rem; }
 }
