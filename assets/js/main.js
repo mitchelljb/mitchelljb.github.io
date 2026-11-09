@@ -127,3 +127,72 @@
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 })();
+
+// Recommendations: selectable, auto-rotating testimonials
+(function () {
+  var root = document.getElementById('reco');
+  if (!root) return;
+  var tabs = Array.prototype.slice.call(root.querySelectorAll('.reco-tab'));
+  var slides = Array.prototype.slice.call(root.querySelectorAll('.reco-slide'));
+  var count = document.getElementById('recoCount');
+  var current = 0;
+  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+  var elapsed = 0, paused = true;
+
+  function show(i, focus) {
+    current = (i + tabs.length) % tabs.length;
+    tabs.forEach(function (tab, n) {
+      var on = n === current;
+      tab.classList.toggle('is-active', on);
+      tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      tab.tabIndex = on ? 0 : -1;
+      slides[n].classList.toggle('is-active', on);
+    });
+    if (count) count.textContent = pad(current + 1) + ' / ' + pad(tabs.length);
+    var active = tabs[current];
+    elapsed = 0;
+    tabs.forEach(function (tab) { tab.querySelector('.reco-progress').style.width = '0'; });
+    // keep the active tab visible in the horizontal list on small screens
+    var list = active.parentNode;
+    if (list.scrollWidth > list.clientWidth) {
+      list.scrollTo({ left: active.offsetLeft - list.offsetLeft - 16, behavior: 'smooth' });
+    }
+    if (focus) active.focus();
+  }
+
+  tabs.forEach(function (tab, n) {
+    tab.addEventListener('click', function () { show(n); });
+    tab.addEventListener('keydown', function (e) {
+      var keys = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+      if (keys[e.key]) { e.preventDefault(); show(current + keys[e.key], true); }
+      else if (e.key === 'Home') { e.preventDefault(); show(0, true); }
+      else if (e.key === 'End') { e.preventDefault(); show(tabs.length - 1, true); }
+    });
+  });
+  document.getElementById('recoPrev').addEventListener('click', function () { show(current - 1); });
+  document.getElementById('recoNext').addEventListener('click', function () { show(current + 1); });
+
+  // pause while the visitor is reading or using it, and while it is off screen
+  var hover = false, focusIn = false, visible = false;
+  function update() { paused = hover || focusIn || !visible; }
+  root.addEventListener('mouseenter', function () { hover = true; update(); });
+  root.addEventListener('mouseleave', function () { hover = false; update(); });
+  root.addEventListener('focusin', function () { focusIn = true; update(); });
+  root.addEventListener('focusout', function () { focusIn = false; update(); });
+  new IntersectionObserver(function (entries) { visible = entries[0].isIntersecting; update(); }, { threshold: 0.3 }).observe(root);
+  update();
+
+  // advance every 7 seconds, with a progress bar on the active tab
+  var DURATION = 7000, last = null;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+  setInterval(function () {
+    var now = performance.now();
+    if (last !== null && !paused) {
+      elapsed += now - last;
+      tabs[current].querySelector('.reco-progress').style.width = Math.min(elapsed / DURATION, 1) * 100 + '%';
+      if (elapsed >= DURATION) show(current + 1);
+    }
+    last = now;
+  }, 100);
+})();
