@@ -334,6 +334,29 @@ h1, h2, h3 { font-family: var(--font-head); color: var(--ink); line-height: 1.2;
   .float-card span { font-size: 0.7rem; }
   .float-card img, .float-card .float-icon { width: 2.1rem; height: 2.1rem; }
 }
+/* Phones: the whole hero fits on the first screen, with the photo between
+   the heading and the rest of the text. The text block is "unwrapped" with
+   display: contents so its parts can be ordered around the photo; desktop
+   and tablet keep the normal two-block layout. */
+@media (max-width: 640px) {
+  .hero { padding: 5.5rem 0 4.75rem; }
+  .hero-inner { display: flex; flex-direction: column; align-items: center; gap: 0; }
+  .hero-text { display: contents; }
+  .eyebrow { display: none; }
+  .hero h1 { order: 1; margin: 0 0 0.6rem; font-size: clamp(2rem, 9vw, 2.5rem); }
+  .hero-lead { order: 2; font-size: 1.1rem; }
+  .hero-visual { order: 3; width: min(15rem, 60%); margin: 1.6rem 0 1.5rem; }
+  .hero-sub { order: 4; margin-top: 0; font-size: 0.95rem; line-height: 1.55; }
+  .hero-actions { order: 5; flex-wrap: nowrap; gap: 0.6rem; margin-top: 1.1rem; width: 100%; justify-content: center; }
+  .hero-actions .btn { padding: 0.75rem 1rem; font-size: 0.85rem; gap: 0.45rem; white-space: nowrap; }
+  .socials { order: 6; margin-top: 1rem; }
+}
+/* narrow phones (360px and similar): keep both buttons and the menu button inside the screen */
+@media (max-width: 380px) {
+  .signature { width: 12rem; }
+  .hero-actions { gap: 0.45rem; }
+  .hero-actions .btn { padding: 0.7rem 0.75rem; font-size: 0.8rem; gap: 0.35rem; }
+}
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
