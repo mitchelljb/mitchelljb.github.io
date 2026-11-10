@@ -130,6 +130,29 @@
   }
 })();
 
+// Floating "back to top" button: appears after the first screen, its ring shows how far down you are
+(function () {
+  var btn = document.getElementById('toTop');
+  if (!btn) return;
+  var ring = document.getElementById('toTopProgress');
+  var LENGTH = 150.8; // circumference of the ring (2 * pi * 24)
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function update() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var y = window.scrollY;
+    btn.classList.toggle('show', y > window.innerHeight * 0.6);
+    if (ring) ring.style.strokeDashoffset = String(LENGTH * (1 - (max > 0 ? Math.min(y / max, 1) : 0)));
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+  btn.addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+    btn.blur();
+  });
+})();
+
 // Keep the footer year current
 (function () {
   var year = document.getElementById('year');
