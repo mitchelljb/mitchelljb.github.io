@@ -13,6 +13,9 @@ Personal website of Mitchell Bakker, Solution Specialist Microsoft Teams & Copil
 ### Languages
 The site is available in English (`index.html`) and Dutch (`nl/index.html`). Both pages share the same CSS and JavaScript; keep their content in sync when making changes.
 
+### Caching
+Cloudflare and browsers cache CSS and JavaScript for up to 10 minutes. The pages load them with a version (`main.css?v=…`, `main.js?v=…`, `404.js?v=…`); change that version in `index.html`, `nl/index.html` and `404.html` whenever you edit a CSS or JS file, so visitors get the new file straight away.
+
 ### Contact
 Connect with me on [LinkedIn](https://www.linkedin.com/in/mitchelljoshuabakker/).
 
