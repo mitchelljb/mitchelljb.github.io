@@ -693,7 +693,8 @@ html:not(.js) .talk-dots, html:not(.js) .talk-progress { display: none; }
 .talk-dot.is-active { width: 1.6rem; background: #fff; }
 
 .talk-side { display: flex; flex-direction: column; }
-.talk-side-title { font-size: 1.1rem; margin-bottom: 1rem; }
+.talk-side-title { font-size: 1.1rem; margin-bottom: 0.35rem; }
+.talk-side-sub { color: var(--muted); font-size: 0.92rem; margin-bottom: 1rem; }
 .talk-tabs { display: grid; gap: 0.6rem; }
 .talk-tab {
   position: relative; overflow: hidden; display: flex; align-items: center; gap: 1rem; width: 100%; text-align: left;
