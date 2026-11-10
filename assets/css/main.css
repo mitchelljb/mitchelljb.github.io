@@ -715,6 +715,15 @@ html:not(.js) .talk-dots, html:not(.js) .talk-progress { display: none; }
 .tv-live::before { content: ""; width: 0.4rem; height: 0.4rem; border-radius: 50%; background: #fff; animation: blink 1.4s ease-in-out infinite; }
 .tv-big { margin: 0.7rem 0 0.3rem; font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; line-height: 1; }
 .tv-big small { display: inline; font-size: 0.75rem; font-weight: 600; }
+.tv-lectures { display: flex; gap: 0.35rem; margin-top: 0.5rem; }
+.tv-lectures i { flex: 1; display: grid; place-items: center; height: 1.6rem; border-radius: 0.45rem; font-size: 0.65rem; color: #fff; background: var(--grad); }
+.is-active .tv-lectures i { animation: lecture-in 0.5s ease both; }
+.is-active .tv-lectures i:nth-child(2) { animation-delay: 0.15s; }
+.is-active .tv-lectures i:nth-child(3) { animation-delay: 0.3s; }
+.is-active .tv-lectures i:nth-child(4) { animation-delay: 0.45s; }
+.is-active .tv-lectures i:nth-child(5) { animation-delay: 0.6s; }
+.is-active .tv-lectures i:nth-child(6) { animation-delay: 0.75s; }
+@keyframes lecture-in { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: none; } }
 .tv-wave { display: flex; align-items: center; gap: 0.3rem; height: 1.5rem; }
 .tv-wave i { flex: 1; height: 100%; border-radius: 0.2rem; background: var(--grad); animation: wave 1.2s ease-in-out infinite; }
 .tv-wave i:nth-child(2n) { animation-delay: -0.4s; }
@@ -722,9 +731,6 @@ html:not(.js) .talk-dots, html:not(.js) .talk-progress { display: none; }
 .tv-wave i:nth-child(5n) { animation-delay: -0.2s; }
 .talk-slide h3 { position: relative; color: #fff; font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; margin-top: 2.5rem; }
 .talk-visual + h3 { margin-top: 1.25rem; }
-.talk-count { display: flex; align-items: baseline; gap: 0.75rem; margin: 0.75rem 0 0; }
-.talk-num { font-family: var(--font-head); font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; }
-.talk-count span:last-child { font-weight: 600; color: rgba(255, 255, 255, 0.9); }
 .talk-text { position: relative; margin-top: 1rem; color: rgba(255, 255, 255, 0.88); max-width: 32rem; }
 .talk-dots { position: absolute; left: 2.5rem; bottom: 1.6rem; display: flex; gap: 0.45rem; }
 .talk-dot {
@@ -772,5 +778,5 @@ html:not(.js) .talk-dots, html:not(.js) .talk-progress { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .js .talk-slide, .js .talk-slide.is-active { transition: none; transform: none; }
-  .is-active > .talk-visual, .tv-wave i, .tv-live::before { animation: none; }
+  .is-active > .talk-visual, .tv-wave i, .tv-live::before, .is-active .tv-lectures i { animation: none; }
 }
