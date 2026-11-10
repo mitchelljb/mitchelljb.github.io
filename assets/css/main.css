@@ -680,7 +680,48 @@ html:not(.js) .talk-dots, html:not(.js) .talk-progress { display: none; }
   padding: 0.35rem 0.85rem; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
   background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.3);
 }
+/* small Teams-style illustrations on the training slides */
+.talk-visual {
+  align-self: flex-end; width: 16.5rem; margin-top: 1rem; padding: 1rem; border-radius: 1.1rem;
+  background: rgba(255, 255, 255, 0.96); color: var(--ink); font-size: 0.82rem; line-height: 1.3;
+  box-shadow: 0 22px 40px -14px rgba(30, 12, 80, 0.45);
+}
+.is-active > .talk-visual { animation: float 6s ease-in-out infinite; }
+.talk-visual strong { display: block; font-family: var(--font-head); font-size: 0.86rem; }
+.talk-visual small { display: block; color: var(--muted); font-size: 0.72rem; }
+.tv-head, .tv-person { display: flex; align-items: center; gap: 0.6rem; }
+.tv-head > span:nth-child(2), .tv-person > span:nth-child(2) { flex: 1; min-width: 0; }
+.tv-ico, .tv-avatar { flex: none; display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 0.6rem; background: var(--grad); color: #fff; font-size: 0.75rem; font-weight: 700; }
+.tv-avatar { border-radius: 50%; }
+.tv-avatar.alt { background: linear-gradient(135deg, #f59e0b, #ec4899); }
+.tv-pill { flex: none; padding: 0.2rem 0.55rem; border-radius: 999px; font-size: 0.68rem; font-weight: 700; background: #f1eafe; color: var(--violet); }
+.tv-ok { background: #dcfce7; color: #15803d; }
+.tv-agenda { list-style: none; margin: 0.8rem 0 0; padding: 0; display: grid; gap: 0.35rem; }
+.tv-agenda li { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0.55rem; border-radius: 0.55rem; background: #f7f4fe; }
+.tv-agenda .done { color: var(--muted); }
+.tv-agenda .done i { color: #22c55e; }
+.tv-agenda .now { background: #ede4fe; color: var(--ink); font-weight: 600; }
+.tv-agenda .now i { color: var(--violet); }
+.tv-chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.75rem; }
+.tv-chips span { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.2rem 0.55rem; border-radius: 999px; font-size: 0.7rem; font-weight: 600; background: #f1eafe; color: var(--violet); }
+.tv-screen { display: grid; gap: 0.4rem; padding: 0.65rem 0.8rem 0.8rem; margin-bottom: 0.6rem; border-radius: 0.7rem; background: linear-gradient(135deg, #1e1446, #3b2a7a); }
+.tv-slidenr { justify-self: end; font-size: 0.62rem; font-weight: 600; color: rgba(255, 255, 255, 0.7); }
+.tv-bar { height: 0.45rem; width: 75%; border-radius: 999px; background: rgba(255, 255, 255, 0.85); }
+.tv-bar.short { width: 45%; background: rgba(255, 255, 255, 0.45); }
+.tv-person { padding: 0.35rem 0.5rem; border-radius: 0.6rem; background: #f7f4fe; }
+.tv-person + .tv-person { margin-top: 0.35rem; }
+.tv-next { opacity: 0.75; }
+.tv-live { flex: none; display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.2rem 0.5rem; border-radius: 0.4rem; background: #ef4444; color: #fff; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.06em; }
+.tv-live::before { content: ""; width: 0.4rem; height: 0.4rem; border-radius: 50%; background: #fff; animation: blink 1.4s ease-in-out infinite; }
+.tv-big { margin: 0.7rem 0 0.3rem; font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; line-height: 1; }
+.tv-big small { display: inline; font-size: 0.75rem; font-weight: 600; }
+.tv-wave { display: flex; align-items: center; gap: 0.3rem; height: 1.5rem; }
+.tv-wave i { flex: 1; height: 100%; border-radius: 0.2rem; background: var(--grad); animation: wave 1.2s ease-in-out infinite; }
+.tv-wave i:nth-child(2n) { animation-delay: -0.4s; }
+.tv-wave i:nth-child(3n) { animation-delay: -0.8s; }
+.tv-wave i:nth-child(5n) { animation-delay: -0.2s; }
 .talk-slide h3 { position: relative; color: #fff; font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 800; margin-top: 2.5rem; }
+.talk-visual + h3 { margin-top: 1.25rem; }
 .talk-count { display: flex; align-items: baseline; gap: 0.75rem; margin: 0.75rem 0 0; }
 .talk-num { font-family: var(--font-head); font-size: clamp(3rem, 6vw, 4.5rem); font-weight: 800; line-height: 1; }
 .talk-count span:last-child { font-weight: 600; color: rgba(255, 255, 255, 0.9); }
@@ -720,6 +761,10 @@ html:not(.js) .talk-dots, html:not(.js) .talk-progress { display: none; }
   .talks-grid { grid-template-columns: 1fr; }
   .talk-feature { min-height: 22rem; }
 }
+@media (max-width: 600px) {
+  .talk-visual { align-self: stretch; width: auto; max-width: 17rem; margin-top: 1.25rem; }
+  .is-active > .talk-visual { animation: none; }
+}
 @media (max-width: 520px) {
   .talk-feature { padding: 1.75rem 1.75rem 3.25rem; }
   .talk-dots { left: 1.75rem; }
@@ -727,4 +772,5 @@ html:not(.js) .talk-dots, html:not(.js) .talk-progress { display: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .js .talk-slide, .js .talk-slide.is-active { transition: none; transform: none; }
+  .is-active > .talk-visual, .tv-wave i, .tv-live::before { animation: none; }
 }
