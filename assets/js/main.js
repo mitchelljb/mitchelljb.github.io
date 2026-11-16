@@ -238,7 +238,7 @@
   carousel({ root: 'reco', tab: '.reco-tab', slide: '.reco-slide', progress: '.reco-progress', count: 'recoCount', prev: 'recoPrev', next: 'recoNext' });
 })();
 
-// Birthday (16 November, Dutch time): confetti, a party hat on the photo and a note
+// Birthday (16 November, Dutch time): confetti and a note
 // that opens a LinkedIn post with a congratulation. Preview with ?birthday in the URL.
 (function () {
   var md = '';
@@ -254,16 +254,6 @@
   var nl = root.lang === 'nl';
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   root.classList.add('is-birthday');
-
-  // Party hat on the hero photo
-  var visual = document.querySelector('.hero-visual');
-  if (visual) {
-    var hat = document.createElement('span');
-    hat.className = 'bday-hat';
-    hat.setAttribute('aria-hidden', 'true');
-    hat.innerHTML = '<span class="bday-cone"></span><span class="bday-pom"></span>';
-    visual.appendChild(hat);
-  }
 
   // Confetti over the whole screen. 'explode': cannons from the centre and both bottom
   // corners plus a rain from the top; 'pop': a fountain from the bottom and a centre burst.
