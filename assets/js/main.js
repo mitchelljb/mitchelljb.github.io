@@ -237,3 +237,112 @@
   carousel({ root: 'talksCarousel', tab: '.talk-tab', slide: '.talk-slide', dot: '.talk-dot', progress: '.talk-progress' });
   carousel({ root: 'reco', tab: '.reco-tab', slide: '.reco-slide', progress: '.reco-progress', count: 'recoCount', prev: 'recoPrev', next: 'recoNext' });
 })();
+
+// Birthday (16 November, Dutch time): confetti, a party hat on the photo and a small note.
+// Preview on any day with ?birthday in the URL.
+(function () {
+  var md = '';
+  try {
+    md = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Amsterdam', month: '2-digit', day: '2-digit' }).format(new Date());
+  } catch (e) {
+    var d = new Date();
+    md = ('0' + d.getDate()).slice(-2) + '/' + ('0' + (d.getMonth() + 1)).slice(-2);
+  }
+  if (md !== '16/11' && !/[?&]birthday\b/.test(location.search)) return;
+
+  var nl = document.documentElement.lang === 'nl';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.documentElement.classList.add('is-birthday');
+
+  // Party hat on the hero photo
+  var visual = document.querySelector('.hero-visual');
+  if (visual) {
+    var hat = document.createElement('span');
+    hat.className = 'bday-hat';
+    hat.setAttribute('aria-hidden', 'true');
+    hat.innerHTML = '<span class="bday-cone"></span><span class="bday-pom"></span>';
+    visual.appendChild(hat);
+  }
+
+  // Note, dismissable for the rest of the day
+  var key = 'bday-closed-' + new Date().getFullYear();
+  var closed = false;
+  try { closed = localStorage.getItem(key) === '1'; } catch (e) {}
+  if (!closed) {
+    var note = document.createElement('div');
+    note.className = 'bday-note';
+    note.setAttribute('role', 'status');
+    var text = document.createElement('span');
+    text.textContent = nl ? '🎉 Ik ben vandaag jarig!' : '🎉 It’s my birthday today!';
+    var close = document.createElement('button');
+    close.type = 'button';
+    close.className = 'bday-close';
+    close.setAttribute('aria-label', nl ? 'Sluiten' : 'Close');
+    close.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i>';
+    close.addEventListener('click', function () {
+      note.classList.add('is-hiding');
+      setTimeout(function () { note.remove(); }, 300);
+      try { localStorage.setItem(key, '1'); } catch (e) {}
+    });
+    note.appendChild(text);
+    note.appendChild(close);
+    document.body.appendChild(note);
+    requestAnimationFrame(function () { note.classList.add('show'); });
+  }
+
+  // Confetti burst, a few seconds only
+  if (reduce) return;
+  var canvas = document.createElement('canvas');
+  canvas.className = 'bday-confetti';
+  canvas.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(canvas);
+  var ctx = canvas.getContext('2d');
+  if (!ctx) { canvas.remove(); return; }
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var w, h;
+  function size() {
+    w = window.innerWidth; h = window.innerHeight;
+    canvas.width = w * dpr; canvas.height = h * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  size();
+  window.addEventListener('resize', size);
+  var colors = ['#8b5cf6', '#6366f1', '#f472b6', '#c4b5fd', '#38bdf8', '#facc15'];
+  var count = w < 640 ? 90 : 170;
+  var parts = [];
+  for (var i = 0; i < count; i++) {
+    parts.push({
+      x: Math.random() * w,
+      y: -20 - Math.random() * h * 0.6,
+      vx: (Math.random() - 0.5) * 2.2,
+      vy: 2 + Math.random() * 3,
+      s: 6 + Math.random() * 6,
+      r: Math.random() * Math.PI,
+      vr: (Math.random() - 0.5) * 0.25,
+      c: colors[i % colors.length],
+      round: Math.random() < 0.3
+    });
+  }
+  var start = null, duration = 4500;
+  function frame(t) {
+    if (start === null) start = t;
+    var el = t - start;
+    ctx.clearRect(0, 0, w, h);
+    ctx.globalAlpha = el > duration - 1000 ? Math.max(0, (duration - el) / 1000) : 1;
+    parts.forEach(function (p) {
+      p.x += p.vx + Math.sin((el / 400) + p.r) * 0.6;
+      p.y += p.vy;
+      p.r += p.vr;
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.r);
+      ctx.fillStyle = p.c;
+      if (p.round) { ctx.beginPath(); ctx.arc(0, 0, p.s / 2.6, 0, Math.PI * 2); ctx.fill(); }
+      else ctx.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2);
+      ctx.restore();
+    });
+    if (el < duration) requestAnimationFrame(frame);
+    else { window.removeEventListener('resize', size); canvas.remove(); }
+  }
+  requestAnimationFrame(frame);
+})();

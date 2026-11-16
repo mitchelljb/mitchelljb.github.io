@@ -846,3 +846,43 @@ html:not(.js) .talk-dots, html:not(.js) .talk-progress { display: none; }
   .js .talk-slide, .js .talk-slide.is-active { transition: none; transform: none; }
   .is-active > .talk-visual, .tv-wave i, .tv-live::before, .is-active .tv-curve-line, 
 }
+
+/* Birthday (16 November): party hat, note and confetti; shown by main.js */
+.bday-hat {
+  position: absolute; z-index: 3; top: -3.3rem; right: 0.6rem; width: 4.2rem; height: 5.4rem;
+  transform-origin: 50% 100%; transform: rotate(16deg); animation: bday-wiggle 2.6s ease-in-out infinite; pointer-events: none;
+}
+.bday-cone {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 5rem;
+  background: repeating-linear-gradient(135deg, transparent 0 0.7rem, rgba(255, 255, 255, 0.35) 0.7rem 1.05rem), linear-gradient(160deg, #f472b6 0%, #8b5cf6 55%, #6366f1 100%);
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+.bday-cone::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 0.5rem; background: #facc15; }
+.bday-pom { position: absolute; top: 0; left: 50%; width: 1.15rem; height: 1.15rem; margin-left: -0.575rem; border-radius: 50%; background: #facc15; box-shadow: 0 0 0 3px #fff; }
+@keyframes bday-wiggle { 0%, 100% { transform: rotate(16deg); } 50% { transform: rotate(7deg); } }
+
+.bday-note {
+  position: fixed; z-index: 95; left: 50%; top: 5.25rem; display: flex; align-items: center; gap: 0.6rem;
+  padding: 0.6rem 0.6rem 0.6rem 1.1rem; border-radius: 999px; color: #fff; font-family: var(--font-head); font-weight: 700;
+  background: linear-gradient(135deg, #f472b6, #8b5cf6 55%, #6366f1); box-shadow: 0 14px 30px -10px rgba(30, 12, 80, 0.55);
+  opacity: 0; transform: translate(-50%, -0.75rem); transition: opacity 0.4s ease, transform 0.4s ease; white-space: nowrap;
+}
+.bday-note.show { opacity: 1; transform: translate(-50%, 0); }
+.bday-note.is-hiding { opacity: 0; transform: translate(-50%, -0.75rem); }
+.bday-close {
+  display: grid; place-items: center; width: 1.9rem; height: 1.9rem; border: 0; border-radius: 50%; cursor: pointer;
+  color: #fff; background: rgba(255, 255, 255, 0.2); font-size: 0.85rem;
+}
+.bday-close:hover, .bday-close:focus-visible { background: rgba(255, 255, 255, 0.35); }
+.bday-confetti { position: fixed; inset: 0; z-index: 150; width: 100%; height: 100%; pointer-events: none; }
+@media (max-width: 640px) {
+  .bday-note { top: auto; bottom: 1rem; left: 1rem; font-size: 0.9rem; transform: translateY(0.75rem); }
+  .bday-note.show { transform: none; }
+  .bday-note.is-hiding { transform: translateY(0.75rem); }
+  .bday-hat { top: -2.5rem; right: 0.2rem; width: 3rem; height: 3.9rem; }
+  .bday-cone { height: 3.6rem; }
+  .bday-pom { width: 0.85rem; height: 0.85rem; margin-left: -0.425rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bday-hat { animation: none; }
+}
