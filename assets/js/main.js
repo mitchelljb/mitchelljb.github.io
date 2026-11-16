@@ -265,9 +265,10 @@
     visual.appendChild(hat);
   }
 
-  // Confetti: rain from the top, or a fountain from the bottom
-  var colors = ['#8b5cf6', '#6366f1', '#f472b6', '#c4b5fd', '#38bdf8', '#facc15'];
-  function burst(count, duration, fromBottom) {
+  // Confetti over the whole screen. 'explode': cannons from the centre and both bottom
+  // corners plus a rain from the top; 'pop': a fountain from the bottom and a centre burst.
+  var colors = ['#8b5cf6', '#6366f1', '#f472b6', '#c4b5fd', '#38bdf8', '#facc15', '#34d399', '#fb7185'];
+  function burst(mode, scale) {
     if (reduce) return;
     var canvas = document.createElement('canvas');
     canvas.className = 'bday-confetti';
@@ -279,54 +280,79 @@
     function size() {
       w = window.innerWidth; h = window.innerHeight;
       canvas.width = w * dpr; canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
     size();
     window.addEventListener('resize', size);
-    var parts = [];
-    for (var i = 0; i < count; i++) {
-      var p = {
-        s: 9 + Math.random() * 10,
-        r: Math.random() * Math.PI,
-        vr: (Math.random() - 0.5) * 0.25,
-        c: colors[i % colors.length],
-        round: Math.random() < 0.3
-      };
-      if (fromBottom) {
-        p.x = w / 2 + (Math.random() - 0.5) * w * 0.3; p.y = h + 10;
-        p.vx = (Math.random() - 0.5) * 12; p.vy = -(12 + Math.random() * 10);
-      } else {
-        p.x = Math.random() * w; p.y = -20 - Math.random() * h * 0.9;
-        p.vx = (Math.random() - 0.5) * 2.2; p.vy = 2.5 + Math.random() * 3.5;
+    var parts = [], rnd = Math.random;
+    // x, y: start point; angle (radians) and spread; speed range; delay range in ms
+    function emit(n, x, y, angle, spread, vMin, vMax, dMax) {
+      n = Math.round(n * scale);
+      for (var i = 0; i < n; i++) {
+        var a = angle + (rnd() - 0.5) * spread, v = vMin + rnd() * (vMax - vMin);
+        parts.push({
+          x: x, y: y, vx: Math.cos(a) * v, vy: Math.sin(a) * v,
+          s: 8 + rnd() * 12, r: rnd() * 6.3, vr: (rnd() - 0.5) * 0.35,
+          f: rnd() * 6.3, vf: 0.05 + rnd() * 0.12, sway: rnd() * 6.3,
+          c: colors[(rnd() * colors.length) | 0], round: rnd() < 0.25,
+          delay: rnd() * dMax, g: 0.2 + rnd() * 0.25, d: 0.955 + rnd() * 0.035, tv: 2.2 + rnd() * 2
+        });
       }
-      parts.push(p);
     }
-    var start = null;
+    var up = -Math.PI / 2;
+    if (mode === 'explode') {
+      emit(320, w / 2, h * 0.42, 0, Math.PI * 2, 6, 24, 150);           // centre explosion
+      emit(220, -10, h + 10, up + 0.62, 0.55, 18, 34, 400);             // bottom-left cannon
+      emit(220, w + 10, h + 10, up - 0.62, 0.55, 18, 34, 400);          // bottom-right cannon
+      emit(160, w * 0.25, h * 0.3, 0, Math.PI * 2, 4, 16, 700);         // second pops
+      emit(160, w * 0.75, h * 0.3, 0, Math.PI * 2, 4, 16, 900);
+      for (var k = 0; k < Math.round(260 * scale); k++) {               // rain over the full width
+        parts.push({
+          x: rnd() * w, y: -20 - rnd() * 60, vx: (rnd() - 0.5) * 2, vy: 2 + rnd() * 2,
+          s: 8 + rnd() * 12, r: rnd() * 6.3, vr: (rnd() - 0.5) * 0.35,
+          f: rnd() * 6.3, vf: 0.05 + rnd() * 0.12, sway: rnd() * 6.3,
+          c: colors[(rnd() * colors.length) | 0], round: rnd() < 0.25,
+          delay: 600 + rnd() * 3800, g: 0.2 + rnd() * 0.25, d: 0.955 + rnd() * 0.035, tv: 2.2 + rnd() * 2
+        });
+      }
+    } else {
+      emit(260, w / 2, h + 10, up, 0.7, 20, 36, 250);                   // fountain from the bottom
+      emit(180, w / 2, h * 0.45, 0, Math.PI * 2, 5, 20, 100);           // centre pop
+    }
+    var start = null, last = null, maxTime = 11000;
     function frame(t) {
-      if (start === null) start = t;
-      var el = t - start;
-      ctx.clearRect(0, 0, w, h);
-      ctx.globalAlpha = el > duration - 1200 ? Math.max(0, (duration - el) / 1200) : 1;
-      parts.forEach(function (p) {
-        if (fromBottom) { p.vy += 0.35; p.vx *= 0.99; if (p.vy > 4) p.vy = 4; }
-        p.x += p.vx + Math.sin((el / 400) + p.r) * 0.6;
-        p.y += p.vy;
-        p.r += p.vr;
-        ctx.save();
-        ctx.translate(p.x, p.y);
-        ctx.rotate(p.r);
+      if (start === null) { start = last = t; }
+      var el = t - start, dt = Math.min((t - last) / 16.7, 3);
+      last = t;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.globalAlpha = el > maxTime - 1500 ? Math.max(0, (maxTime - el) / 1500) : 1;
+      var alive = 0;
+      for (var i = 0; i < parts.length; i++) {
+        var p = parts[i];
+        if (p.done) continue;
+        alive++;
+        if (el < p.delay) continue;
+        p.vy += p.g * dt;                                  // gravity (light and heavy pieces)
+        p.vx *= Math.pow(p.d, dt); if (p.vy < 0) p.vy *= Math.pow(p.d, dt); // air drag
+        if (p.vy > p.tv) p.vy -= (p.vy - p.tv) * 0.04 * dt; // ease to a slow flutter
+        p.x += (p.vx + Math.sin(el / 350 + p.sway) * 0.8) * dt;
+        p.y += p.vy * dt;
+        p.r += p.vr * dt;
+        p.f += p.vf * dt;
+        if (p.y > h + 40 && p.vy > 0) { p.done = true; continue; }
+        var c = Math.cos(p.r), s = Math.sin(p.r), flip = Math.cos(p.f);
+        ctx.setTransform(dpr * c, dpr * s, -dpr * s * flip, dpr * c * flip, dpr * p.x, dpr * p.y);
         ctx.fillStyle = p.c;
-        if (p.round) { ctx.beginPath(); ctx.arc(0, 0, p.s / 2.6, 0, Math.PI * 2); ctx.fill(); }
+        if (p.round) { ctx.beginPath(); ctx.arc(0, 0, p.s / 2.6, 0, 6.283); ctx.fill(); }
         else ctx.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2);
-        ctx.restore();
-      });
-      if (el < duration) requestAnimationFrame(frame);
+      }
+      if (alive && el < maxTime) requestAnimationFrame(frame);
       else { window.removeEventListener('resize', size); canvas.remove(); }
     }
     requestAnimationFrame(frame);
   }
   var small = window.innerWidth < 640;
-  burst(small ? 150 : 280, 7000, false);
+  burst('explode', small ? 0.5 : 1);
 
   // Note: the whole note opens a prefilled LinkedIn post; the cross closes it for today
   var key = 'bday-closed-' + new Date().getFullYear();
@@ -350,7 +376,7 @@
     '<span class="bday-in" aria-hidden="true"><i class="fab fa-linkedin-in"></i></span>';
   link.querySelector('strong').textContent = nl ? 'Ik ben vandaag jarig!' : 'It’s my birthday today!';
   link.querySelector('small').textContent = nl ? 'Feliciteer me op LinkedIn →' : 'Congratulate me on LinkedIn →';
-  link.addEventListener('click', function () { burst(small ? 120 : 200, 4500, true); });
+  link.addEventListener('click', function () { burst('pop', small ? 0.6 : 1); });
   var close = document.createElement('button');
   close.type = 'button';
   close.className = 'bday-close';
