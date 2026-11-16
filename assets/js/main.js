@@ -351,8 +351,8 @@
   if (closed) return;
 
   var post = nl
-    ? 'Gefeliciteerd met je verjaardag, Mitchell Bakker! 🎉🎂 https://mitchellbakker.nl/nl/'
-    : 'Happy birthday, Mitchell Bakker! 🎉🎂 https://mitchellbakker.nl/';
+    ? 'Gefeliciteerd met je verjaardag, Mitchell Bakker! 🎉🎂 https://www.linkedin.com/in/mitchelljoshuabakker/'
+    : 'Happy birthday, Mitchell Bakker! 🎉🎂 https://www.linkedin.com/in/mitchelljoshuabakker/';
   var note = document.createElement('div');
   note.className = 'bday-note';
   var link = document.createElement('a');
@@ -362,10 +362,11 @@
   link.rel = 'noopener noreferrer';
   link.innerHTML =
     '<span class="bday-emoji" aria-hidden="true">🎉</span>' +
-    '<span class="bday-text"><strong></strong><small></small></span>' +
+    '<span class="bday-text"><strong></strong><small></small><em class="bday-tip"></em></span>' +
     '<span class="bday-in" aria-hidden="true"><i class="fab fa-linkedin-in"></i></span>';
   link.querySelector('strong').textContent = nl ? 'Ik ben vandaag jarig!' : 'It’s my birthday today!';
   link.querySelector('small').textContent = nl ? 'Feliciteer me op LinkedIn →' : 'Congratulate me on LinkedIn →';
+  link.querySelector('.bday-tip').textContent = nl ? 'Tip: tag me met @Mitchell Bakker' : 'Tip: tag me with @Mitchell Bakker';
   link.addEventListener('click', function () { burst('pop', small ? 0.6 : 1); });
   var close = document.createElement('button');
   close.type = 'button';

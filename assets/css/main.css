@@ -868,6 +868,7 @@ html:not(.js) .talk-dots, html:not(.js) .talk-progress { display: none; }
 .bday-text { display: grid; line-height: 1.2; }
 .bday-text strong { font-family: var(--font-head); font-size: 1.2rem; font-weight: 800; white-space: nowrap; }
 .bday-text small { font-size: 0.92rem; font-weight: 600; color: rgba(255, 255, 255, 0.92); white-space: nowrap; }
+.bday-tip { margin-top: 0.1rem; font-size: 0.8rem; font-style: normal; font-weight: 500; color: rgba(255, 255, 255, 0.85); white-space: nowrap; }
 .bday-in {
   display: grid; place-items: center; flex: none; width: 2.7rem; height: 2.7rem; border-radius: 50%; background: #fff; color: #0a66c2;
   font-size: 1.25rem; transition: transform 0.2s ease;
@@ -883,10 +884,11 @@ html:not(.js) .talk-dots, html:not(.js) .talk-progress { display: none; }
   .bday-note.show { transform: none; }
   .bday-link { flex: 1; min-width: 0; gap: 0.6rem; padding-left: 0.5rem; padding-right: 0.25rem; }
   .bday-text { min-width: 0; }
-  .bday-text strong, .bday-text small { white-space: normal; }
+  .bday-text strong, .bday-text small, .bday-tip { white-space: normal; }
   .bday-emoji { font-size: 1.6rem; }
   .bday-text strong { font-size: 1.02rem; }
   .bday-text small { font-size: 0.82rem; }
+  .bday-tip { font-size: 0.74rem; }
   .bday-in { display: none; }
   .bday-note-open .to-top { bottom: 6rem; }
 }
