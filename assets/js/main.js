@@ -238,8 +238,8 @@
   carousel({ root: 'reco', tab: '.reco-tab', slide: '.reco-slide', progress: '.reco-progress', count: 'recoCount', prev: 'recoPrev', next: 'recoNext' });
 })();
 
-// Birthday (16 November, Dutch time): confetti, a party hat on the photo and a small note.
-// Preview on any day with ?birthday in the URL.
+// Birthday (16 November, Dutch time): confetti, a party hat on the photo and a note
+// that opens a LinkedIn post with a congratulation. Preview with ?birthday in the URL.
 (function () {
   var md = '';
   try {
@@ -250,9 +250,10 @@
   }
   if (md !== '16/11' && !/[?&]birthday\b/.test(location.search)) return;
 
-  var nl = document.documentElement.lang === 'nl';
+  var root = document.documentElement;
+  var nl = root.lang === 'nl';
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.documentElement.classList.add('is-birthday');
+  root.classList.add('is-birthday');
 
   // Party hat on the hero photo
   var visual = document.querySelector('.hero-visual');
@@ -264,85 +265,106 @@
     visual.appendChild(hat);
   }
 
-  // Note, dismissable for the rest of the day
+  // Confetti: rain from the top, or a fountain from the bottom
+  var colors = ['#8b5cf6', '#6366f1', '#f472b6', '#c4b5fd', '#38bdf8', '#facc15'];
+  function burst(count, duration, fromBottom) {
+    if (reduce) return;
+    var canvas = document.createElement('canvas');
+    canvas.className = 'bday-confetti';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+    if (!ctx) { canvas.remove(); return; }
+    var dpr = Math.min(window.devicePixelRatio || 1, 2), w, h;
+    function size() {
+      w = window.innerWidth; h = window.innerHeight;
+      canvas.width = w * dpr; canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    size();
+    window.addEventListener('resize', size);
+    var parts = [];
+    for (var i = 0; i < count; i++) {
+      var p = {
+        s: 9 + Math.random() * 10,
+        r: Math.random() * Math.PI,
+        vr: (Math.random() - 0.5) * 0.25,
+        c: colors[i % colors.length],
+        round: Math.random() < 0.3
+      };
+      if (fromBottom) {
+        p.x = w / 2 + (Math.random() - 0.5) * w * 0.3; p.y = h + 10;
+        p.vx = (Math.random() - 0.5) * 12; p.vy = -(12 + Math.random() * 10);
+      } else {
+        p.x = Math.random() * w; p.y = -20 - Math.random() * h * 0.9;
+        p.vx = (Math.random() - 0.5) * 2.2; p.vy = 2.5 + Math.random() * 3.5;
+      }
+      parts.push(p);
+    }
+    var start = null;
+    function frame(t) {
+      if (start === null) start = t;
+      var el = t - start;
+      ctx.clearRect(0, 0, w, h);
+      ctx.globalAlpha = el > duration - 1200 ? Math.max(0, (duration - el) / 1200) : 1;
+      parts.forEach(function (p) {
+        if (fromBottom) { p.vy += 0.35; p.vx *= 0.99; if (p.vy > 4) p.vy = 4; }
+        p.x += p.vx + Math.sin((el / 400) + p.r) * 0.6;
+        p.y += p.vy;
+        p.r += p.vr;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.r);
+        ctx.fillStyle = p.c;
+        if (p.round) { ctx.beginPath(); ctx.arc(0, 0, p.s / 2.6, 0, Math.PI * 2); ctx.fill(); }
+        else ctx.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2);
+        ctx.restore();
+      });
+      if (el < duration) requestAnimationFrame(frame);
+      else { window.removeEventListener('resize', size); canvas.remove(); }
+    }
+    requestAnimationFrame(frame);
+  }
+  var small = window.innerWidth < 640;
+  burst(small ? 150 : 280, 7000, false);
+
+  // Note: the whole note opens a prefilled LinkedIn post; the cross closes it for today
   var key = 'bday-closed-' + new Date().getFullYear();
   var closed = false;
   try { closed = localStorage.getItem(key) === '1'; } catch (e) {}
-  if (!closed) {
-    var note = document.createElement('div');
-    note.className = 'bday-note';
-    note.setAttribute('role', 'status');
-    var text = document.createElement('span');
-    text.textContent = nl ? '🎉 Ik ben vandaag jarig!' : '🎉 It’s my birthday today!';
-    var close = document.createElement('button');
-    close.type = 'button';
-    close.className = 'bday-close';
-    close.setAttribute('aria-label', nl ? 'Sluiten' : 'Close');
-    close.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i>';
-    close.addEventListener('click', function () {
-      note.classList.add('is-hiding');
-      setTimeout(function () { note.remove(); }, 300);
-      try { localStorage.setItem(key, '1'); } catch (e) {}
-    });
-    note.appendChild(text);
-    note.appendChild(close);
-    document.body.appendChild(note);
-    requestAnimationFrame(function () { note.classList.add('show'); });
-  }
+  if (closed) return;
 
-  // Confetti burst, a few seconds only
-  if (reduce) return;
-  var canvas = document.createElement('canvas');
-  canvas.className = 'bday-confetti';
-  canvas.setAttribute('aria-hidden', 'true');
-  document.body.appendChild(canvas);
-  var ctx = canvas.getContext('2d');
-  if (!ctx) { canvas.remove(); return; }
-  var dpr = Math.min(window.devicePixelRatio || 1, 2);
-  var w, h;
-  function size() {
-    w = window.innerWidth; h = window.innerHeight;
-    canvas.width = w * dpr; canvas.height = h * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  }
-  size();
-  window.addEventListener('resize', size);
-  var colors = ['#8b5cf6', '#6366f1', '#f472b6', '#c4b5fd', '#38bdf8', '#facc15'];
-  var count = w < 640 ? 90 : 170;
-  var parts = [];
-  for (var i = 0; i < count; i++) {
-    parts.push({
-      x: Math.random() * w,
-      y: -20 - Math.random() * h * 0.6,
-      vx: (Math.random() - 0.5) * 2.2,
-      vy: 2 + Math.random() * 3,
-      s: 6 + Math.random() * 6,
-      r: Math.random() * Math.PI,
-      vr: (Math.random() - 0.5) * 0.25,
-      c: colors[i % colors.length],
-      round: Math.random() < 0.3
-    });
-  }
-  var start = null, duration = 4500;
-  function frame(t) {
-    if (start === null) start = t;
-    var el = t - start;
-    ctx.clearRect(0, 0, w, h);
-    ctx.globalAlpha = el > duration - 1000 ? Math.max(0, (duration - el) / 1000) : 1;
-    parts.forEach(function (p) {
-      p.x += p.vx + Math.sin((el / 400) + p.r) * 0.6;
-      p.y += p.vy;
-      p.r += p.vr;
-      ctx.save();
-      ctx.translate(p.x, p.y);
-      ctx.rotate(p.r);
-      ctx.fillStyle = p.c;
-      if (p.round) { ctx.beginPath(); ctx.arc(0, 0, p.s / 2.6, 0, Math.PI * 2); ctx.fill(); }
-      else ctx.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2);
-      ctx.restore();
-    });
-    if (el < duration) requestAnimationFrame(frame);
-    else { window.removeEventListener('resize', size); canvas.remove(); }
-  }
-  requestAnimationFrame(frame);
+  var post = nl
+    ? 'Gefeliciteerd met je verjaardag, Mitchell Bakker! 🎉🎂 https://mitchellbakker.nl/nl/'
+    : 'Happy birthday, Mitchell Bakker! 🎉🎂 https://mitchellbakker.nl/';
+  var note = document.createElement('div');
+  note.className = 'bday-note';
+  var link = document.createElement('a');
+  link.className = 'bday-link';
+  link.href = 'https://www.linkedin.com/feed/?shareActive=true&text=' + encodeURIComponent(post);
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  link.innerHTML =
+    '<span class="bday-emoji" aria-hidden="true">🎉</span>' +
+    '<span class="bday-text"><strong></strong><small></small></span>' +
+    '<span class="bday-in" aria-hidden="true"><i class="fab fa-linkedin-in"></i></span>';
+  link.querySelector('strong').textContent = nl ? 'Ik ben vandaag jarig!' : 'It’s my birthday today!';
+  link.querySelector('small').textContent = nl ? 'Feliciteer me op LinkedIn →' : 'Congratulate me on LinkedIn →';
+  link.addEventListener('click', function () { burst(small ? 120 : 200, 4500, true); });
+  var close = document.createElement('button');
+  close.type = 'button';
+  close.className = 'bday-close';
+  close.setAttribute('aria-label', nl ? 'Sluiten' : 'Close');
+  close.innerHTML = '<i class="fas fa-times" aria-hidden="true"></i>';
+  close.addEventListener('click', function () {
+    note.classList.remove('show');
+    root.classList.remove('bday-note-open');
+    setTimeout(function () { note.remove(); }, 450);
+    try { localStorage.setItem(key, '1'); } catch (e) {}
+  });
+  note.appendChild(link);
+  note.appendChild(close);
+  document.body.appendChild(note);
+  root.classList.add('bday-note-open');
+  requestAnimationFrame(function () { requestAnimationFrame(function () { note.classList.add('show'); }); });
 })();
