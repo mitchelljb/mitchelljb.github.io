@@ -351,8 +351,8 @@
   if (closed) return;
 
   var post = nl
-    ? 'Gefeliciteerd met je verjaardag, Mitchell Bakker! 🎉🎂 https://www.linkedin.com/in/mitchelljoshuabakker/'
-    : 'Happy birthday, Mitchell Bakker! 🎉🎂 https://www.linkedin.com/in/mitchelljoshuabakker/';
+    ? 'Van harte gefeliciteerd met je verjaardag Mitchell Bakker! 🎉🎂 https://mitchellbakker.nl/'
+    : 'Happy birthday Mitchell Bakker! 🎉🎂 https://mitchellbakker.nl/';
   var note = document.createElement('div');
   note.className = 'bday-note';
   var link = document.createElement('a');
