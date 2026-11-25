@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Teams Phone &amp; Enterprise Voice | Mitchell Bakker</title>
+    <meta name="description" content="Moving from legacy telephony to Microsoft Teams Phone? Advice on Direct Routing, Operator Connect and Calling Plans, design and a phased migration, by a Teams Voice Engineer Expert.">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="theme-color" content="#120a2a">
+
+    <!-- Link previews (LinkedIn, Teams, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mitchellbakker.nl/teams-phone/">
+    <link rel="canonical" href="https://mitchellbakker.nl/teams-phone/">
+    <link rel="alternate" hreflang="en" href="https://mitchellbakker.nl/teams-phone/">
+    <link rel="alternate" hreflang="nl" href="https://mitchellbakker.nl/nl/teams-telefonie/">
+    <link rel="alternate" hreflang="x-default" href="https://mitchellbakker.nl/teams-phone/">
+    <meta property="og:site_name" content="Mitchell Bakker">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:locale:alternate" content="nl_NL">
+    <meta property="og:title" content="Microsoft Teams Phone &amp; Enterprise Voice | Mitchell Bakker">
+    <meta property="og:description" content="Moving from legacy telephony to Microsoft Teams Phone? Advice on Direct Routing, Operator Connect and Calling Plans, design and a phased migration, by a Teams Voice Engineer Expert.">
+    <meta property="og:image" content="https://mitchellbakker.nl/assets/images/og-image.jpg">
+    <meta property="og:image:secure_url" content="https://mitchellbakker.nl/assets/images/og-image.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Mitchell Bakker, Solution Specialist Microsoft Teams &amp; Copilot">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Microsoft Teams Phone &amp; Enterprise Voice | Mitchell Bakker">
+    <meta name="twitter:description" content="Moving from legacy telephony to Microsoft Teams Phone? Advice on Direct Routing, Operator Connect and Calling Plans, design and a phased migration, by a Teams Voice Engineer Expert.">
+    <meta name="twitter:image" content="https://mitchellbakker.nl/assets/images/og-image.jpg">
+
+    <link rel="icon" href="/assets/images/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+
+    <link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/fonts.css">
+    <link rel="stylesheet" href="/assets/css/icons.css?v=20261125a">
+    <link rel="stylesheet" href="/assets/css/main.css?v=20261125d">
+    <script>document.documentElement.classList.add("js");</script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebPage",
+                "url": "https://mitchellbakker.nl/teams-phone/",
+                "name": "Microsoft Teams Phone & Enterprise Voice",
+                "inLanguage": "en",
+                "isPartOf": { "@id": "https://mitchellbakker.nl/#website" },
+                "dateModified": "2026-11-25T12:00:00+01:00"
+            },
+            {
+                "@type": "Service",
+                "name": "Microsoft Teams Phone & Enterprise Voice",
+                "serviceType": "Microsoft Teams Phone & Enterprise Voice",
+                "description": "Moving from legacy telephony to Microsoft Teams Phone? Advice on Direct Routing, Operator Connect and Calling Plans, design and a phased migration, by a Teams Voice Engineer Expert.",
+                "provider": { "@id": "https://mitchellbakker.nl/#person" },
+                "areaServed": { "@type": "Country", "name": "Netherlands" },
+                "url": "https://mitchellbakker.nl/teams-phone/"
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://mitchellbakker.nl/" },
+                    { "@type": "ListItem", "position": 2, "name": "Microsoft Teams Phone & Enterprise Voice", "item": "https://mitchellbakker.nl/teams-phone/" }
+                ]
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===== Navigation ===== -->
+<header class="nav" id="nav">
+    <div class="container nav-inner">
+        <a href="/" class="brand" aria-label="Mitchell Bakker, home">
+            <span class="signature" aria-hidden="true"></span>
+        </a>
+        <nav class="nav-links" id="navLinks" aria-label="Main">
+            <a href="/#about">About</a>
+            <a href="/#experience">Experience</a>
+            <a href="/#talks">Talks</a>
+            <a href="/#recommendations">Recommendations</a>
+            <a href="/#certifications">Certifications</a>
+            <a href="https://www.linkedin.com/in/mitchelljoshuabakker/" class="nav-cta" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin-in" aria-hidden="true"></i> Connect
+            </a>
+        </nav>
+        <div class="lang-switch" role="group" aria-label="Language">
+            <a href="/teams-phone/" lang="en" hreflang="en" aria-current="page" aria-label="English">EN</a>
+            <a href="/nl/teams-telefonie/" lang="nl" hreflang="nl" aria-label="Nederlands">NL</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+    </div>
+</header>
+
+<main id="main">
+
+<!-- ===== Hero ===== -->
+<section class="hero hero-service" id="top">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="container">
+        <div class="hero-service-text">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <a href="/">Home</a>
+                <span class="breadcrumb-sep" aria-hidden="true">&rsaquo;</span>
+                <span aria-current="page">Microsoft Teams Phone &amp; Enterprise Voice</span>
+            </nav>
+            <span class="eyebrow"><span class="dot" aria-hidden="true"></span> Service</span>
+            <h1>Microsoft Teams Phone &amp; Enterprise Voice</h1>
+            <p class="hero-sub">Calling in Microsoft Teams, from the first design to the last number ported. Since 2015 I've been working on Enterprise Voice, from Lync and Skype for Business to Microsoft Teams.</p>
+            <div class="hero-actions">
+                <a href="https://www.linkedin.com/in/mitchelljoshuabakker/" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i> Let's talk on LinkedIn</a>
+                <a href="/#help" class="btn btn-ghost"><i class="fas fa-arrow-left" aria-hidden="true"></i> All services</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== Recognise this? ===== -->
+<section class="section help-section">
+    <div class="container help">
+        <div class="help-head reveal">
+            <span class="section-kicker">Recognise this?</span>
+            <h2 class="section-title">Recognise this?</h2>
+        </div>
+
+        <div class="help-grid">
+            <article class="help-card reveal">
+                <span class="help-icon" aria-hidden="true"><i class="fas fa-phone-alt"></i></span>
+                <h3>Your phone system or contract is end-of-life, and you're not sure what comes next.</h3>
+            </article>
+            <article class="help-card reveal">
+                <span class="help-icon" aria-hidden="true"><i class="fas fa-random"></i></span>
+                <h3>You hear about Direct Routing, Operator Connect and Calling Plans, but which one fits your organisation?</h3>
+            </article>
+            <article class="help-card reveal">
+                <span class="help-icon" aria-hidden="true"><i class="fas fa-users"></i></span>
+                <h3>Reception, call queues and auto attendants have grown over the years, and nobody knows exactly how they work.</h3>
+            </article>
+            <article class="help-card reveal">
+                <span class="help-icon" aria-hidden="true"><i class="fas fa-check-circle"></i></span>
+                <h3>You want to move, but without your users or your customers noticing anything on the day itself.</h3>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- ===== How I help ===== -->
+<section class="section">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="section-kicker">How I help</span>
+            <h2 class="section-title">How I help</h2>
+        </div>
+
+        <ol class="steps">
+            <li class="reveal">
+                <h3>Inventory.</h3>
+                <p>What's there now: numbers, locations, call flows, devices, contracts and special cases like fax, intercoms or emergency calling.</p>
+            </li>
+            <li class="reveal">
+                <h3>Choosing the connectivity model.</h3>
+                <p>Honest advice on Direct Routing, Operator Connect or Calling Plans, based on your locations, existing contracts and requirements.</p>
+            </li>
+            <li class="reveal">
+                <h3>Design.</h3>
+                <p>Call queues, auto attendants, voice routing and policies, ready for the future.</p>
+            </li>
+            <li class="reveal">
+                <h3>Migration.</h3>
+                <p>Number porting and a phased cut-over with minimal disruption.</p>
+            </li>
+            <li class="reveal">
+                <h3>Adoption.</h3>
+                <p>Users who know what changes and how to work with it, because technology only works when people actually use it.</p>
+            </li>
+        </ol>
+    </div>
+</section>
+
+<!-- ===== Experience and closing ===== -->
+<section class="section experience">
+    <div class="container">
+        <div class="section-head reveal">
+            <span class="section-kicker">Experience</span>
+            <h2 class="section-title">Why work with me</h2>
+        </div>
+
+        <ul class="proof reveal">
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Microsoft Certified: Teams Voice Engineer Expert</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> MCSE Enterprise Voice (Lync 2013)</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Converged Communications Partner Bootcamp 2024</li>
+            <li><i class="fas fa-check-circle" aria-hidden="true"></i> Designed and implemented Enterprise Voice solutions on Lync Server 2013, Skype for Business Server 2015 and Office 365 for national and international clients in education, government, finance, real estate, manufacturing and retail.</li>
+        </ul>
+
+        <div class="center reveal">
+            <a href="/#certifications" class="help-more">All certifications <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+
+        <div class="help-cta reveal">
+            <p>Working on a move to Teams Phone? I'm happy to think along.</p>
+            <a href="https://www.linkedin.com/in/mitchelljoshuabakker/" class="btn btn-primary" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i> Let's talk on LinkedIn</a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <p>© <span id="year">2026</span> Mitchell Bakker</p>
+        <ul class="socials socials-small" aria-label="Social profiles">
+            <li><a href="https://www.linkedin.com/in/mitchelljoshuabakker/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
+            <li><a href="https://github.com/mitchelljb" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+</footer>
+
+<a href="#top" class="to-top" id="toTop" aria-label="Back to top">
+    <svg class="to-top-ring" viewBox="0 0 52 52" aria-hidden="true" focusable="false"><circle class="to-top-track" cx="26" cy="26" r="24"/><circle class="to-top-progress" id="toTopProgress" cx="26" cy="26" r="24"/></svg>
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+</a>
+
+<script src="/assets/js/main.js?v=20261125b"></script>
+</body>
+</html>

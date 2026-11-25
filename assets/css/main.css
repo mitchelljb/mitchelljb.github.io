@@ -895,3 +895,45 @@ html:not(.js) .talk-dots, html:not(.js) .talk-progress { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .bday-note.show { animation: none; }
 }
+
+/* =========================================================
+   Service pages
+   ========================================================= */
+.hero-service { display: block; min-height: 0; padding: 9rem 0 4.5rem; }
+@media (max-width: 640px) { .hero-service { padding: 6.5rem 0 3.5rem; } }
+.hero-service-text { max-width: 46rem; }
+.hero-service .hero-sub { margin-inline: 0; }
+.hero-service .hero-actions { justify-content: flex-start; flex-wrap: wrap; }
+
+.breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 0.45rem; margin-bottom: 1.4rem; font-size: 0.88rem; color: #9d94bf; }
+.breadcrumb a { color: #c9c2e3; transition: color 0.2s ease; }
+.breadcrumb a:hover { color: #fff; }
+.breadcrumb-sep { color: #6b628f; }
+
+.steps { counter-reset: step; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; max-width: 54rem; margin-inline: auto; }
+.steps li { counter-increment: step; padding: 1.6rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); }
+.steps li::before {
+  content: counter(step); display: block; margin-bottom: 0.6rem;
+  font-family: var(--font-head); font-size: 2.6rem; font-weight: 800; line-height: 1;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.steps h3 { font-size: 1.08rem; margin-bottom: 0.4rem; }
+.steps p { font-size: 0.95rem; color: var(--muted); }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+
+.proof { display: grid; gap: 0.85rem; max-width: 54rem; margin-inline: auto; }
+.proof li {
+  display: flex; align-items: flex-start; gap: 0.8rem; padding: 1rem 1.25rem; border-radius: 1rem;
+  background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); color: var(--ink-soft);
+}
+.proof i { flex-shrink: 0; margin-top: 0.3rem; color: var(--violet); }
+
+/* "Read more" link on the homepage help cards, and "All certifications" on service pages */
+.help-more { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 0.6rem; font-size: 0.9rem; font-weight: 600; color: var(--violet-dark); }
+.help-more i { transition: transform 0.2s ease; }
+.help-more:hover i { transform: translateX(3px); }
+.help-card > .help-more { grid-column: 2; justify-self: start; }
+
+/* Service pages scroll normally: no one-screen-per-section snapping */
+html:has(.hero-service) { scroll-snap-type: none; }
+main:has(.hero-service) > section.section { min-height: 0; display: block; padding: 5.5rem 0; }
